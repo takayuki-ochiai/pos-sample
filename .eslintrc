@@ -27,6 +27,7 @@
         "it": true,
         "describe": true,
         "Generator": true,
+        "persistence": true,
     },
     "parserOptions": {
       "sourceType": "module"
