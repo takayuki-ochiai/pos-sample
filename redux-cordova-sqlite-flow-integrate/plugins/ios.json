@@ -15,6 +15,9 @@
         },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.tochiai.integrate"
+        },
+        "cordova-plugin-browsersync": {
+            "PACKAGE_NAME": "com.tochiai.integrate"
         }
     },
     "dependent_plugins": {}

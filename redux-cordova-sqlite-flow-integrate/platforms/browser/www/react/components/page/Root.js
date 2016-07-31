@@ -21,8 +21,8 @@ class Root extends React.Component {
   render() {
     return (
       <div>
-        <div>ほげほげほげ</div>
-        <button onClick={this.onClickButton}>hoge</button>
+        <div>ほげsss</div>
+        <button onClick={this.onClickButton}></button>
       </div>
     );
   }

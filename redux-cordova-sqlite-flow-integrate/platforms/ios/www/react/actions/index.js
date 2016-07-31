@@ -1,8 +1,10 @@
 /* @flow */
-import { ROUTER_TRANSITION_ACTIONS } from './constants';
+import { ROUTER_TRANSITION_ACTIONS, ON_DEVICE_READY } from './constants';
 import { push } from 'react-router-redux';
 
 export const sagaTake = () => ({ type: 'SAGA_TAKE' });
+
+export const deviceReady = () => ({ type: ON_DEVICE_READY });
 
 export const setRouterTransition = (type: string) => ({ type });
 

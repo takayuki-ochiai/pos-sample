@@ -5,16 +5,18 @@ const path = require('path');
 const cssLoader = 'style!css-loader?modules&importLoaders=1&'
   + 'localIdentName=[name]__[local]___[hash:base64:5]';
 
+const manifest = require('./redux-cordova-sqlite-flow-integrate/www/dist/vendor-manifest.json');
+
 module.exports = {
   debug: true,
-  devtool: '#eval-source-map',
+  devtool: '#inline-source-map',
   resolve: {
     // import/requireをするときに拡張子を省略できるようにする
     extensions: ['', '.js', '.jsx'],
   },
   entry: [
-    'webpack/hot/dev-server',
-    'webpack-hot-middleware/client',
+    // 'webpack/hot/dev-server',
+    // 'webpack-hot-middleware/client',
     './redux-cordova-sqlite-flow-integrate/www/react/main.jsx',
     './redux-cordova-sqlite-flow-integrate/www/stylesheet/reset.css',
     './redux-cordova-sqlite-flow-integrate/www/stylesheet/colors.css',
@@ -32,6 +34,13 @@ module.exports = {
     // new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      /**
+       * manifestファイルをロードして渡す
+       */
+      manifest,
+    }),
     // Minify用
     // new webpack.optimize.UglifyJsPlugin(),
     // new CompressionPlugin({
@@ -48,7 +57,7 @@ module.exports = {
       {
         test: /\.(jsx|js)?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015'],
+        loaders: ['react-hot', 'babel?cacheDirectory=true,presets[]=react,presets[]=es2015'],
       },
       {
         test: /\.css$/,

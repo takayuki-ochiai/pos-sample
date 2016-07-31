@@ -6,7 +6,24 @@
 
 # Ignore bundler config.
 /node_modules
+/redux-cordova-sqlite-flow-integrate/platforms/browser/www/dist
+!/redux-cordova-sqlite-flow-integrate/platforms/browser/www/dist/bundle.js
+!/redux-cordova-sqlite-flow-integrate/platforms/browser/www/dist/bundle.js.map
+!/redux-cordova-sqlite-flow-integrate/platforms/browser/www/dist/vendor.dll.js
+!/redux-cordova-sqlite-flow-integrate/platforms/browser/www/dist/vendor-manifest.json
+!/redux-cordova-sqlite-flow-integrate/platforms/browser/www/dist/index.html
+
+
+/redux-cordova-sqlite-flow-integrate/platforms/ios/www/dist
+!/redux-cordova-sqlite-flow-integrate/platforms/ios/www/dist/bundle.js
+!/redux-cordova-sqlite-flow-integrate/platforms/ios/www/dist/bundle.js.map
+!/redux-cordova-sqlite-flow-integrate/platforms/ios/www/dist/vendor.dll.js
+!/redux-cordova-sqlite-flow-integrate/platforms/ios/www/dist/vendor-manifest.json
+!/redux-cordova-sqlite-flow-integrate/platforms/ios/www/dist/index.html
+
 /redux-cordova-sqlite-flow-integrate/www/dist/
 !/redux-cordova-sqlite-flow-integrate/www/dist/bundle.js
 !/redux-cordova-sqlite-flow-integrate/www/dist/bundle.js.map
+!/redux-cordova-sqlite-flow-integrate/www/dist/vendor.dll.js
+!/redux-cordova-sqlite-flow-integrate/www/dist/vendor-manifest.json
 !/redux-cordova-sqlite-flow-integrate/www/dist/index.html

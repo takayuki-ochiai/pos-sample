@@ -1,6 +1,5 @@
-/* @flow */
-import { takeEvery, delay, take } from 'redux-saga';
-import { call, fork } from 'redux-saga/effects';
+import { takeEvery, delay } from 'redux-saga';
+import { call, fork, take } from 'redux-saga/effects';
 import { ON_DEVICE_READY } from './constants';
 
 function* scream(action) {
@@ -9,17 +8,18 @@ function* scream(action) {
   console.log('aieeeeee!');
 }
 
-function* handleRequestSaga(): Generator<any, any, any> {
+function* handleRequestSaga() {
   console.log('handleRequestUserStart');
   yield* takeEvery('SAGA_TAKE', scream);
 }
 
 // ON_DEVICE_READYを受け取ったら一度だけ起動して後続の初期化処理を開始する
-function* handleDeviceReadySaga(): Generator<any, any, any> {
+function* handleDeviceReadySaga() {
+  console.log('handleDeviceReadySagaStart');
   yield take(ON_DEVICE_READY);
 }
 
-export default function* rootSaga(): Generator<any, any, any> {
+export default function* rootSaga() {
   console.log('rootSagaStart');
   yield fork(handleRequestSaga);
   yield fork(handleDeviceReadySaga);

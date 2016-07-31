@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 
@@ -17,6 +18,8 @@ import { grey50, redA200 } from 'material-ui/styles/colors';
 import LayoutCtrl from './containers/LayoutCtrl';
 import Root from './containers/Root';
 import configureStore from './store';
+
+import { deviceReady } from './actions';
 
 const storeObject = configureStore();
 const store = storeObject.store;
@@ -42,19 +45,67 @@ const muiTheme = getMuiTheme({
   },
 });
 
+render(
+  <MuiThemeProvider muiTheme={muiTheme}>
+    <Provider store={store}>
+      <Router history={history}>
+        <Route path="/" component={Layout}>
+          <IndexRoute component={Root} />
+        </Route>
+      </Router>
+    </Provider>
+  </MuiThemeProvider>,
+  document.getElementById('app')
+);
+storeObject.startSaga();
+// webSQLならcordovareadyしなくても使える
+persistence.store.websql.config(
+  persistence,
+  'testdb',
+  'テスト用のDBをセットアップします',
+  5 * 1024 * 1024
+);
+
+const Category = persistence.define('Category', {
+  name: 'TEXT',
+  metaData: 'JSON',
+});
+
+persistence.schemaSync();
+
+const allCategory = Category.all().list(categories => {
+  categories.forEach(category => {
+    persistence.remove(category);
+    persistence.flush();
+  });
+});
+
+// console.log(allCategory);
+
+// インデックスをつける
+// Category.index('name', { unique: true });
+// Category.index(['name', 'metaData'], {unique:true});
+// 新規登録
+// const newcategory1 = new Category({ name: "My category2" });
+// newcategory1.metaData = { rating: 6 };
+// persistence.add(newcategory1);
+// const newcategory2 = new Category({ name: "My category1" });
+// newcategory2.metaData = { rating: 5 };
+// persistence.add(newcategory2);
+// persistence.flush();
+// 条件付きで取得
+// Category.findBy(persistence, null, 'name', 'My category6 update!!!', category => {
+//   console.log(category);
+//   // 更新したいときはEntityの値を書き換えてflushすればよい
+//   console.log('update!');
+//   // category.name = 'My category6 update!!!';
+//   // persistence.flush();
+//   // 削除する
+//   persistence.remove(category);
+//   persistence.flush();
+// });
+
 document.addEventListener('deviceready', () => {
   console.log('deviceready');
-  render(
-    <MuiThemeProvider muiTheme={muiTheme}>
-      <Provider store={store}>
-        <Router history={history}>
-          <Route path="/" component={Layout}>
-            <IndexRoute component={Root} />
-          </Route>
-        </Router>
-      </Provider>
-    </MuiThemeProvider>,
-    document.getElementById('app')
-  );
-  storeObject.startSaga();
+  store.dispatch(deviceReady());
 }, false);

@@ -20,7 +20,8 @@ module.exports.metadata =
 {
     "cordova-plugin-device": "1.1.2",
     "cordova-plugin-whitelist": "1.2.2",
-    "cordova-plugin-console": "1.0.3"
+    "cordova-plugin-console": "1.0.3",
+    "cordova-plugin-browsersync": "0.1.1"
 }
 // BOTTOM OF METADATA
 });

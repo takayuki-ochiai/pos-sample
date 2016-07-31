@@ -15,6 +15,7 @@ function* handleRequestSaga() {
 
 // ON_DEVICE_READYを受け取ったら一度だけ起動して後続の初期化処理を開始する
 function* handleDeviceReadySaga() {
+  console.log('handleDeviceReadySagaStart');
   yield take(ON_DEVICE_READY);
 }
 
