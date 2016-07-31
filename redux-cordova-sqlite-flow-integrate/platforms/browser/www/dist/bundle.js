@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "586915fac8ff5b3f89bd"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "aff87b3e17b98fd00a66"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -9623,6 +9623,12 @@
 	          return (0, _effects.take)(_constants.ON_DEVICE_READY);
 	
 	        case 3:
+	          // webSQLならcordovaでdivicereadyイベントが発火する前でもDB定義を開始できるが、原則browserでの確認もcordova browserを使用する想定
+	          console.log("start dbsetup in handleDeviceReadySaga");
+	          persistence.store.websql.config(persistence, 'testdb', 'テスト用のDBをセットアップします', 5 * 1024 * 1024);
+	          persistence.schemaSync();
+	
+	        case 6:
 	        case 'end':
 	          return _context3.stop();
 	      }
@@ -9762,6 +9768,8 @@
 	
 	var _actions = __webpack_require__(/*! ../../actions */ 67);
 	
+	var _dbEntities = __webpack_require__(/*! ../../../initializer/dbEntities */ 197);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Root = function (_React$Component) {
@@ -9784,6 +9792,11 @@
 	    key: 'onClickButton',
 	    value: function onClickButton() {
 	      this.props.dispatch((0, _actions.sagaTake)());
+	      console.log("dbinsert start!!!");
+	      var newcategory1 = new _dbEntities.Category({ name: "My category3" });
+	      newcategory1.metaData = { rating: 6 };
+	      persistence.add(newcategory1);
+	      persistence.flush();
 	    }
 	  }, {
 	    key: 'render',
@@ -9988,47 +10001,6 @@
 	  )
 	), document.getElementById('app'));
 	storeObject.startSaga();
-	// webSQLならcordovareadyしなくても使える
-	persistence.store.websql.config(persistence, 'testdb', 'テスト用のDBをセットアップします', 5 * 1024 * 1024);
-	
-	var Category = persistence.define('Category', {
-	  name: 'TEXT',
-	  metaData: 'JSON'
-	});
-	
-	persistence.schemaSync();
-	
-	var allCategory = Category.all().list(function (categories) {
-	  categories.forEach(function (category) {
-	    persistence.remove(category);
-	    persistence.flush();
-	  });
-	});
-	
-	// console.log(allCategory);
-	
-	// インデックスをつける
-	// Category.index('name', { unique: true });
-	// Category.index(['name', 'metaData'], {unique:true});
-	// 新規登録
-	// const newcategory1 = new Category({ name: "My category2" });
-	// newcategory1.metaData = { rating: 6 };
-	// persistence.add(newcategory1);
-	// const newcategory2 = new Category({ name: "My category1" });
-	// newcategory2.metaData = { rating: 5 };
-	// persistence.add(newcategory2);
-	// persistence.flush();
-	// 条件付きで取得
-	// Category.findBy(persistence, null, 'name', 'My category6 update!!!', category => {
-	//   console.log(category);
-	//   // 更新したいときはEntityの値を書き換えてflushすればよい
-	//   console.log('update!');
-	//   // category.name = 'My category6 update!!!';
-	//   // persistence.flush();
-	//   // 削除する
-	//   persistence.remove(category);
-	//   persistence.flush();
-	// });
 	
 	document.addEventListener('deviceready', function () {
 	  console.log('deviceready');
@@ -34951,6 +34923,63 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = (__webpack_require__(2))(899);
+
+/***/ },
+/* 197 */
+/*!***************************************************************************!*\
+  !*** ./redux-cordova-sqlite-flow-integrate/www/initializer/dbEntities.js ***!
+  \***************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(/*! ./~/react-hot-api/modules/index.js */ 3), RootInstanceProvider = __webpack_require__(/*! ./~/react-hot-loader/RootInstanceProvider.js */ 4), ReactMount = __webpack_require__(/*! react/lib/ReactMount */ 6), React = __webpack_require__(/*! react */ 1); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	// スキーマ定義自体はdeviceReady前に可能。
+	// DBを開いたりスキーマを反映させるのはdeviceReady以後になる
+	var Category = exports.Category = persistence.define('Category', {
+	  name: 'TEXT',
+	  metaData: 'JSON'
+	});
+	
+	// const allCategory = Category.all().list(categories => {
+	//   categories.forEach(category => {
+	//     persistence.remove(category);
+	//     persistence.flush();
+	//   });
+	// });
+	
+	// console.log(allCategory);
+	
+	// インデックスをつける
+	// Category.index('name', { unique: true });
+	// Category.index(['name', 'metaData'], {unique:true});
+	// 新規登録
+	// const newcategory1 = new Category({ name: "My category2" });
+	// newcategory1.metaData = { rating: 6 };
+	// persistence.add(newcategory1);
+	// const newcategory2 = new Category({ name: "My category1" });
+	// newcategory2.metaData = { rating: 5 };
+	// persistence.add(newcategory2);
+	// persistence.flush();
+	// 条件付きで取得
+	// Category.findBy(persistence, null, 'name', 'My category6 update!!!', category => {
+	//   console.log(category);
+	//   // 更新したいときはEntityの値を書き換えてflushすればよい
+	//   console.log('update!');
+	//   // category.name = 'My category6 update!!!';
+	//   // persistence.flush();
+	//   // 削除する
+	//   persistence.remove(category);
+	//   persistence.flush();
+	// });
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(/*! ./~/react-hot-loader/makeExportsHot.js */ 5); if (makeExportsHot(module, __webpack_require__(/*! react */ 1))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "dbEntities.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ }
 /******/ ]);

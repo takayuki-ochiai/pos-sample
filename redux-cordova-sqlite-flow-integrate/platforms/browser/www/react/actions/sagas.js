@@ -17,6 +17,15 @@ function* handleRequestSaga() {
 function* handleDeviceReadySaga() {
   console.log('handleDeviceReadySagaStart');
   yield take(ON_DEVICE_READY);
+  // webSQLならcordovaでdivicereadyイベントが発火する前でもDB定義を開始できるが、原則browserでの確認もcordova browserを使用する想定
+  console.log("start dbsetup in handleDeviceReadySaga");
+  persistence.store.websql.config(
+    persistence,
+    'testdb',
+    'テスト用のDBをセットアップします',
+    5 * 1024 * 1024
+  );
+  persistence.schemaSync();
 }
 
 export default function* rootSaga() {

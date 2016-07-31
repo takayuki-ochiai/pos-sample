@@ -16,6 +16,7 @@ module.exports.devtool	/Users/TakayukiOchiai/hybridApp/cordova/integrate/webpack
 module.exports.resolve	/Users/TakayukiOchiai/hybridApp/cordova/integrate/webpack.config.js	/^  devtool: '#inline-source-map',$/;"	property	line:12
 module.exports.entry	/Users/TakayukiOchiai/hybridApp/cordova/integrate/webpack.dll.config.js	/^module.exports = {$/;"	property	line:4
 constructor	/Users/TakayukiOchiai/hybridApp/cordova/integrate/redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js	/^  constructor(props: Object) {$/;"	function	line:10
-onClickButton	/Users/TakayukiOchiai/hybridApp/cordova/integrate/redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js	/^  onClickButton() {$/;"	function	line:16
-render	/Users/TakayukiOchiai/hybridApp/cordova/integrate/redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js	/^  render() {$/;"	function	line:21
-Root	/Users/TakayukiOchiai/hybridApp/cordova/integrate/redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js	/^\/\/ function Root() {$/;"	function	line:31
+onClickButton	/Users/TakayukiOchiai/hybridApp/cordova/integrate/redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js	/^  onClickButton() {$/;"	function	line:15
+newcategory1.metaData.rating	/Users/TakayukiOchiai/hybridApp/cordova/integrate/redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js	/^    newcategory1.metaData = { rating: 6 };$/;"	property	line:19
+render	/Users/TakayukiOchiai/hybridApp/cordova/integrate/redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js	/^  render() {$/;"	function	line:24
+Root	/Users/TakayukiOchiai/hybridApp/cordova/integrate/redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js	/^\/\/ function Root() {$/;"	function	line:34
