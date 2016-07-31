@@ -2,10 +2,9 @@
 import { connect } from 'react-redux';
 import Root from '../components/page/Root';
 
-const mapStateToProps = state => {
-  const a = 1;
-  return {};
-};
+const mapStateToProps = state => ({
+  categories: state.categories,
+});
 
 const LayoutCtrl = connect(
   mapStateToProps

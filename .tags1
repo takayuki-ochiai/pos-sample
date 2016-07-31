@@ -4,3 +4,6 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+constructor	/Users/TakayukiOchiai/hybridApp/cordova/integrate/redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js	/^  constructor(props: Object) {$/;"	function	line:11
+onClickInsertButton	/Users/TakayukiOchiai/hybridApp/cordova/integrate/redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js	/^  onClickInsertButton() {$/;"	function	line:16
+render	/Users/TakayukiOchiai/hybridApp/cordova/integrate/redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js	/^  render() {$/;"	function	line:28

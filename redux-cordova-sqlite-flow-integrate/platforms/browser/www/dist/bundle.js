@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "aff87b3e17b98fd00a66"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "bb2214c8c18e108a8a3c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -586,9 +586,9 @@
   \******************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./redux-cordova-sqlite-flow-integrate/www/react/main.jsx */144);
-	__webpack_require__(/*! ./redux-cordova-sqlite-flow-integrate/www/stylesheet/reset.css */179);
-	module.exports = __webpack_require__(/*! ./redux-cordova-sqlite-flow-integrate/www/stylesheet/colors.css */178);
+	__webpack_require__(/*! ./redux-cordova-sqlite-flow-integrate/www/react/main.jsx */145);
+	__webpack_require__(/*! ./redux-cordova-sqlite-flow-integrate/www/stylesheet/reset.css */180);
+	module.exports = __webpack_require__(/*! ./redux-cordova-sqlite-flow-integrate/www/stylesheet/colors.css */179);
 
 
 /***/ },
@@ -679,7 +679,7 @@
 	'use strict';
 	
 	var isReactClassish = __webpack_require__(/*! ./isReactClassish */ 68),
-	    isReactElementish = __webpack_require__(/*! ./isReactElementish */ 150);
+	    isReactElementish = __webpack_require__(/*! ./isReactElementish */ 151);
 	
 	function makeExportsHot(m, React) {
 	  if (isReactElementish(m.exports, React)) {
@@ -1178,11 +1178,11 @@
 	  }
 	});
 	
-	var _sync = __webpack_require__(/*! ./sync */ 163);
+	var _sync = __webpack_require__(/*! ./sync */ 164);
 	
 	var _sync2 = _interopRequireDefault(_sync);
 	
-	var _middleware = __webpack_require__(/*! ./middleware */ 162);
+	var _middleware = __webpack_require__(/*! ./middleware */ 163);
 	
 	var _middleware2 = _interopRequireDefault(_middleware);
 	
@@ -1610,7 +1610,12 @@
 	  TRANSITION_NO_ANIMATION: 'TRANSITION_NO_ANIMATION'
 	};
 	
+	var CATEGORY_ACTIONS = exports.CATEGORY_ACTIONS = {
+	  ADD_CATEGORY: 'ADD_CATEGORY'
+	};
+	
 	var ON_DEVICE_READY = exports.ON_DEVICE_READY = 'ON_DEVICE_READY';
+	var FETCH_DB_DATA = exports.FETCH_DB_DATA = 'FETCH_DB_DATA';
 	
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(/*! ./~/react-hot-loader/makeExportsHot.js */ 5); if (makeExportsHot(module, __webpack_require__(/*! react */ 1))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "constants.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../~/webpack/buildin/module.js */ 7)(module)))
@@ -1773,11 +1778,11 @@
 	exports.__esModule = true;
 	exports.connect = exports.Provider = undefined;
 	
-	var _Provider = __webpack_require__(/*! ./components/Provider */ 158);
+	var _Provider = __webpack_require__(/*! ./components/Provider */ 159);
 	
 	var _Provider2 = _interopRequireDefault(_Provider);
 	
-	var _connect = __webpack_require__(/*! ./components/connect */ 159);
+	var _connect = __webpack_require__(/*! ./components/connect */ 160);
 	
 	var _connect2 = _interopRequireDefault(_connect);
 	
@@ -1802,15 +1807,15 @@
 	
 	var _createStore2 = _interopRequireDefault(_createStore);
 	
-	var _combineReducers = __webpack_require__(/*! ./combineReducers */ 176);
+	var _combineReducers = __webpack_require__(/*! ./combineReducers */ 177);
 	
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 	
-	var _bindActionCreators = __webpack_require__(/*! ./bindActionCreators */ 175);
+	var _bindActionCreators = __webpack_require__(/*! ./bindActionCreators */ 176);
 	
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 	
-	var _applyMiddleware = __webpack_require__(/*! ./applyMiddleware */ 174);
+	var _applyMiddleware = __webpack_require__(/*! ./applyMiddleware */ 175);
 	
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 	
@@ -2400,11 +2405,20 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.transitionNoAnimation = exports.transitionSlideRight = exports.transitionSlideLeft = exports.transitionFade = exports.transitionPop = exports.transition = exports.setRouterTransition = exports.deviceReady = exports.sagaTake = undefined;
+	exports.transitionNoAnimation = exports.transitionSlideRight = exports.transitionSlideLeft = exports.transitionFade = exports.transitionPop = exports.transition = exports.setRouterTransition = exports.deviceReady = exports.sagaTake = exports.addCategory = undefined;
 	
 	var _constants = __webpack_require__(/*! ./constants */ 46);
 	
 	var _reactRouterRedux = __webpack_require__(/*! react-router-redux */ 27);
+	
+	var addCategory = exports.addCategory = function addCategory(category) {
+	  return {
+	    type: _constants.CATEGORY_ACTIONS.ADD_CATEGORY,
+	    payload: {
+	      category: category
+	    }
+	  };
+	};
 	
 	var sagaTake = exports.sagaTake = function sagaTake() {
 	  return { type: 'SAGA_TAKE' };
@@ -2738,7 +2752,7 @@
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _symbolObservable = __webpack_require__(/*! symbol-observable */ 181);
+	var _symbolObservable = __webpack_require__(/*! symbol-observable */ 182);
 	
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 	
@@ -3270,7 +3284,7 @@
   \**********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(/*! regenerator-runtime */ 177);
+	module.exports = __webpack_require__(/*! regenerator-runtime */ 178);
 
 
 /***/ },
@@ -9547,6 +9561,62 @@
 
 /***/ },
 /* 139 */
+/*!***************************************************************************!*\
+  !*** ./redux-cordova-sqlite-flow-integrate/www/initializer/dbEntities.js ***!
+  \***************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(/*! ./~/react-hot-api/modules/index.js */ 3), RootInstanceProvider = __webpack_require__(/*! ./~/react-hot-loader/RootInstanceProvider.js */ 4), ReactMount = __webpack_require__(/*! react/lib/ReactMount */ 6), React = __webpack_require__(/*! react */ 1); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	// スキーマ定義自体はdeviceReady前に可能。
+	// DBを開いたりスキーマを反映させるのはdeviceReady以後になる
+	var CagegoryDbEntity = exports.CagegoryDbEntity = persistence.define('Category', {
+	  name: 'TEXT',
+	  metaData: 'JSON'
+	});
+	
+	// const allCategory = Category.all().list(categories => {
+	//   categories.forEach(category => {
+	//     persistence.remove(category);
+	//     persistence.flush();
+	//   });
+	// });
+	
+	// console.log(allCategory);
+	
+	// インデックスをつける
+	// Category.index('name', { unique: true });
+	// Category.index(['name', 'metaData'], {unique:true});
+	// 新規登録
+	// const newcategory1 = new Category({ name: "My category2" });
+	// newcategory1.metaData = { rating: 6 };
+	// persistence.add(newcategory1);
+	// const newcategory2 = new Category({ name: "My category1" });
+	// newcategory2.metaData = { rating: 5 };
+	// persistence.add(newcategory2);
+	// persistence.flush();
+	// 条件付きで取得
+	// Category.findBy(persistence, null, 'name', 'My category6 update!!!', category => {
+	//   console.log(category);
+	//   // 更新したいときはEntityの値を書き換えてflushすればよい
+	//   console.log('update!');
+	//   // category.name = 'My category6 update!!!';
+	//   // persistence.flush();
+	//   // 削除する
+	//   persistence.remove(category);
+	//   persistence.flush();
+	// });
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(/*! ./~/react-hot-loader/makeExportsHot.js */ 5); if (makeExportsHot(module, __webpack_require__(/*! react */ 1))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "dbEntities.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../~/webpack/buildin/module.js */ 7)(module)))
+
+/***/ },
+/* 140 */
 /*!************************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/react/actions/sagas.js ***!
   \************************************************************************/
@@ -9560,6 +9630,10 @@
 	  value: true
 	});
 	
+	var _promise = __webpack_require__(/*! babel-runtime/core-js/promise */ 202);
+	
+	var _promise2 = _interopRequireDefault(_promise);
+	
 	var _regenerator = __webpack_require__(/*! babel-runtime/regenerator */ 92);
 	
 	var _regenerator2 = _interopRequireDefault(_regenerator);
@@ -9568,13 +9642,23 @@
 	
 	var _reduxSaga = __webpack_require__(/*! redux-saga */ 79);
 	
-	var _effects = __webpack_require__(/*! redux-saga/effects */ 172);
+	var _effects = __webpack_require__(/*! redux-saga/effects */ 173);
 	
 	var _constants = __webpack_require__(/*! ./constants */ 46);
 	
+	var _immutable = __webpack_require__(/*! immutable */ 130);
+	
+	var _category = __webpack_require__(/*! ../../entities/category */ 198);
+	
+	var _category2 = _interopRequireDefault(_category);
+	
+	var _dbEntities = __webpack_require__(/*! ../../initializer/dbEntities */ 139);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var _marked = [scream, handleRequestSaga, handleDeviceReadySaga, rootSaga].map(_regenerator2.default.mark);
+	var _marked = [scream, handleRequestSaga, handleDeviceReadySaga, fetchDbData, handleFetchDbSaga, rootSaga].map(_regenerator2.default.mark);
+	// import Todo from './entities/Todo';
+	
 	
 	function scream(action) {
 	  return _regenerator2.default.wrap(function scream$(_context) {
@@ -9627,8 +9711,12 @@
 	          console.log("start dbsetup in handleDeviceReadySaga");
 	          persistence.store.websql.config(persistence, 'testdb', 'テスト用のDBをセットアップします', 5 * 1024 * 1024);
 	          persistence.schemaSync();
+	          console.log('start fetch db data');
+	          // DBのデータを取得してreducerにセットする処理を発行
+	          _context3.next = 9;
+	          return (0, _effects.put)({ type: _constants.FETCH_DB_DATA });
 	
-	        case 6:
+	        case 9:
 	        case 'end':
 	          return _context3.stop();
 	      }
@@ -9636,20 +9724,44 @@
 	  }, _marked[2], this);
 	}
 	
-	function rootSaga() {
-	  return _regenerator2.default.wrap(function rootSaga$(_context4) {
+	function fetchDbData() {
+	  var list;
+	  return _regenerator2.default.wrap(function fetchDbData$(_context4) {
 	    while (1) {
 	      switch (_context4.prev = _context4.next) {
 	        case 0:
-	          console.log('rootSagaStart');
+	          console.log('fetchDbData start');
 	          _context4.next = 3;
-	          return (0, _effects.fork)(handleRequestSaga);
+	          return (0, _effects.call)(function () {
+	            return new _promise2.default(function (resolve) {
+	              var categoryList = (0, _immutable.List)([]);
+	              _dbEntities.CagegoryDbEntity.all().list(function (categories) {
+	                categories.forEach(function (category) {
+	                  var categoryRecord = _category2.default.fromJS({
+	                    name: category.name,
+	                    metaData: category.metaData
+	                  });
+	                  categoryList = categoryList.push(categoryRecord);
+	                });
+	                resolve(categoryList);
+	              });
+	            });
+	          });
 	
 	        case 3:
-	          _context4.next = 5;
-	          return (0, _effects.fork)(handleDeviceReadySaga);
+	          list = _context4.sent;
 	
-	        case 5:
+	          console.log('call finish');
+	          console.log(list.size);
+	          _context4.next = 8;
+	          return (0, _effects.put)({
+	            type: 'SET_CATEGORY_TABLE_RECORDS',
+	            payload: {
+	              list: list
+	            }
+	          });
+	
+	        case 8:
 	        case 'end':
 	          return _context4.stop();
 	      }
@@ -9657,11 +9769,52 @@
 	  }, _marked[3], this);
 	}
 	
+	function handleFetchDbSaga() {
+	  return _regenerator2.default.wrap(function handleFetchDbSaga$(_context5) {
+	    while (1) {
+	      switch (_context5.prev = _context5.next) {
+	        case 0:
+	          console.log('handleFetchDbStart');
+	          return _context5.delegateYield((0, _reduxSaga.takeEvery)(_constants.FETCH_DB_DATA, fetchDbData), 't0', 2);
+	
+	        case 2:
+	        case 'end':
+	          return _context5.stop();
+	      }
+	    }
+	  }, _marked[4], this);
+	}
+	
+	function rootSaga() {
+	  return _regenerator2.default.wrap(function rootSaga$(_context6) {
+	    while (1) {
+	      switch (_context6.prev = _context6.next) {
+	        case 0:
+	          console.log('rootSagaStart');
+	          _context6.next = 3;
+	          return (0, _effects.fork)(handleRequestSaga);
+	
+	        case 3:
+	          _context6.next = 5;
+	          return (0, _effects.fork)(handleDeviceReadySaga);
+	
+	        case 5:
+	          _context6.next = 7;
+	          return (0, _effects.fork)(handleFetchDbSaga);
+	
+	        case 7:
+	        case 'end':
+	          return _context6.stop();
+	      }
+	    }
+	  }, _marked[5], this);
+	}
+	
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(/*! ./~/react-hot-loader/makeExportsHot.js */ 5); if (makeExportsHot(module, __webpack_require__(/*! react */ 1))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "sagas.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ },
-/* 140 */
+/* 141 */
 /*!*****************************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/react/components/Layout.jsx ***!
   \*****************************************************************************/
@@ -9683,9 +9836,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouterTransition = __webpack_require__(/*! react-router-transition */ 164);
+	var _reactRouterTransition = __webpack_require__(/*! react-router-transition */ 165);
 	
-	var _routerTransition = __webpack_require__(/*! ../../stylesheet/routerTransition.css */ 180);
+	var _routerTransition = __webpack_require__(/*! ../../stylesheet/routerTransition.css */ 181);
 	
 	var _routerTransition2 = _interopRequireDefault(_routerTransition);
 	
@@ -9728,7 +9881,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ },
-/* 141 */
+/* 142 */
 /*!*******************************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/react/components/page/Root.js ***!
   \*******************************************************************************/
@@ -9768,7 +9921,9 @@
 	
 	var _actions = __webpack_require__(/*! ../../actions */ 67);
 	
-	var _dbEntities = __webpack_require__(/*! ../../../initializer/dbEntities */ 197);
+	var _category = __webpack_require__(/*! ../../../entities/category */ 198);
+	
+	var _category2 = _interopRequireDefault(_category);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -9784,23 +9939,37 @@
 	
 	    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Root).call(this, props));
 	
-	    _this.onClickButton = _this.onClickButton.bind(_this);
+	    _this.onClickInsertButton = _this.onClickInsertButton.bind(_this);
 	    return _this;
 	  }
 	
 	  (0, _createClass3.default)(Root, [{
-	    key: 'onClickButton',
-	    value: function onClickButton() {
+	    key: 'onClickInsertButton',
+	    value: function onClickInsertButton() {
 	      this.props.dispatch((0, _actions.sagaTake)());
-	      console.log("dbinsert start!!!");
-	      var newcategory1 = new _dbEntities.Category({ name: "My category3" });
-	      newcategory1.metaData = { rating: 6 };
-	      persistence.add(newcategory1);
-	      persistence.flush();
+	      console.log('dbinsert start!!!');
+	      var newcategory1 = _category2.default.fromJS({
+	        name: 'My category3',
+	        metaData: { rating: 1 }
+	      });
+	      if (newcategory1.save()) {
+	        this.props.dispatch((0, _actions.addCategory)(newcategory1));
+	      }
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var categories = this.props.categories.map(function (category, index) {
+	        return _react2.default.createElement(
+	          'div',
+	          { key: index },
+	          'カテゴリ名: ',
+	          category.name,
+	          _react2.default.createElement('br', null),
+	          'レーティング: ',
+	          category.metaData.rating
+	        );
+	      });
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -9809,18 +9978,17 @@
 	          null,
 	          'ほげsss'
 	        ),
-	        _react2.default.createElement('button', { onClick: this.onClickButton })
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.onClickInsertButton },
+	          'insert data'
+	        ),
+	        categories
 	      );
 	    }
 	  }]);
 	  return Root;
 	}(_react2.default.Component);
-	
-	// function Root() {
-	//   return (
-	//     <div>ほげほげ</div>
-	//   );
-	// }
 	
 	exports.default = Root;
 	
@@ -9828,7 +9996,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ },
-/* 142 */
+/* 143 */
 /*!*********************************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/react/containers/LayoutCtrl.jsx ***!
   \*********************************************************************************/
@@ -9844,7 +10012,7 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 51);
 	
-	var _Layout = __webpack_require__(/*! ../components/Layout */ 140);
+	var _Layout = __webpack_require__(/*! ../components/Layout */ 141);
 	
 	var _Layout2 = _interopRequireDefault(_Layout);
 	
@@ -9862,7 +10030,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ },
-/* 143 */
+/* 144 */
 /*!***************************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/react/containers/Root.jsx ***!
   \***************************************************************************/
@@ -9878,15 +10046,16 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 51);
 	
-	var _Root = __webpack_require__(/*! ../components/page/Root */ 141);
+	var _Root = __webpack_require__(/*! ../components/page/Root */ 142);
 	
 	var _Root2 = _interopRequireDefault(_Root);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var mapStateToProps = function mapStateToProps(state) {
-	  var a = 1;
-	  return {};
+	  return {
+	    categories: state.categories
+	  };
 	};
 	
 	var LayoutCtrl = (0, _reactRedux.connect)(mapStateToProps)(_Root2.default);
@@ -9897,7 +10066,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ },
-/* 144 */
+/* 145 */
 /*!****************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/react/main.jsx ***!
   \****************************************************************/
@@ -9913,7 +10082,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactDom = __webpack_require__(/*! react-dom */ 185);
+	var _reactDom = __webpack_require__(/*! react-dom */ 186);
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 51);
 	
@@ -9921,29 +10090,29 @@
 	
 	var _reactRouterRedux = __webpack_require__(/*! react-router-redux */ 27);
 	
-	var _getMuiTheme = __webpack_require__(/*! material-ui/styles/getMuiTheme */ 184);
+	var _getMuiTheme = __webpack_require__(/*! material-ui/styles/getMuiTheme */ 185);
 	
 	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 	
-	var _MuiThemeProvider = __webpack_require__(/*! material-ui/styles/MuiThemeProvider */ 183);
+	var _MuiThemeProvider = __webpack_require__(/*! material-ui/styles/MuiThemeProvider */ 184);
 	
 	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
 	
-	var _reactTapEventPlugin = __webpack_require__(/*! react-tap-event-plugin */ 170);
+	var _reactTapEventPlugin = __webpack_require__(/*! react-tap-event-plugin */ 171);
 	
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 	
-	var _colors = __webpack_require__(/*! material-ui/styles/colors */ 186);
+	var _colors = __webpack_require__(/*! material-ui/styles/colors */ 187);
 	
-	var _LayoutCtrl = __webpack_require__(/*! ./containers/LayoutCtrl */ 142);
+	var _LayoutCtrl = __webpack_require__(/*! ./containers/LayoutCtrl */ 143);
 	
 	var _LayoutCtrl2 = _interopRequireDefault(_LayoutCtrl);
 	
-	var _Root = __webpack_require__(/*! ./containers/Root */ 143);
+	var _Root = __webpack_require__(/*! ./containers/Root */ 144);
 	
 	var _Root2 = _interopRequireDefault(_Root);
 	
-	var _store = __webpack_require__(/*! ./store */ 148);
+	var _store = __webpack_require__(/*! ./store */ 149);
 	
 	var _store2 = _interopRequireDefault(_store);
 	
@@ -10011,7 +10180,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ },
-/* 145 */
+/* 146 */
 /*!*************************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/react/reducers/index.js ***!
   \*************************************************************************/
@@ -10027,19 +10196,24 @@
 	
 	var _redux = __webpack_require__(/*! redux */ 52);
 	
-	var _router = __webpack_require__(/*! ./router */ 146);
+	var _router = __webpack_require__(/*! ./router */ 147);
 	
 	var _router2 = _interopRequireDefault(_router);
 	
-	var _routerTransition = __webpack_require__(/*! ./routerTransition */ 147);
+	var _routerTransition = __webpack_require__(/*! ./routerTransition */ 148);
 	
 	var _routerTransition2 = _interopRequireDefault(_routerTransition);
+	
+	var _categories = __webpack_require__(/*! ./categories */ 199);
+	
+	var _categories2 = _interopRequireDefault(_categories);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var App = (0, _redux.combineReducers)({
 	  routing: _router2.default,
-	  routerTransition: _routerTransition2.default
+	  routerTransition: _routerTransition2.default,
+	  categories: _categories2.default
 	});
 	
 	exports.default = App;
@@ -10048,7 +10222,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ },
-/* 146 */
+/* 147 */
 /*!**************************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/react/reducers/router.js ***!
   \**************************************************************************/
@@ -10093,7 +10267,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ },
-/* 147 */
+/* 148 */
 /*!************************************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/react/reducers/routerTransition.js ***!
   \************************************************************************************/
@@ -10107,7 +10281,7 @@
 	  value: true
 	});
 	
-	var _transitionPresets = __webpack_require__(/*! ../utils/transitionPresets */ 149);
+	var _transitionPresets = __webpack_require__(/*! ../utils/transitionPresets */ 150);
 	
 	var _transitionPresets2 = _interopRequireDefault(_transitionPresets);
 	
@@ -10143,7 +10317,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ },
-/* 148 */
+/* 149 */
 /*!**********************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/react/store/index.js ***!
   \**********************************************************************/
@@ -10160,11 +10334,11 @@
 	
 	var _redux = __webpack_require__(/*! redux */ 52);
 	
-	var _reduxThunk = __webpack_require__(/*! redux-thunk */ 173);
+	var _reduxThunk = __webpack_require__(/*! redux-thunk */ 174);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _reduxLogger = __webpack_require__(/*! redux-logger */ 171);
+	var _reduxLogger = __webpack_require__(/*! redux-logger */ 172);
 	
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 	
@@ -10178,11 +10352,11 @@
 	
 	var _reduxSaga2 = _interopRequireDefault(_reduxSaga);
 	
-	var _reducers = __webpack_require__(/*! ../reducers */ 145);
+	var _reducers = __webpack_require__(/*! ../reducers */ 146);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
-	var _sagas = __webpack_require__(/*! ../actions/sagas */ 139);
+	var _sagas = __webpack_require__(/*! ../actions/sagas */ 140);
 	
 	var _sagas2 = _interopRequireDefault(_sagas);
 	
@@ -10211,7 +10385,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ },
-/* 149 */
+/* 150 */
 /*!**********************************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/react/utils/transitionPresets.js ***!
   \**********************************************************************************/
@@ -10225,7 +10399,7 @@
 	  value: true
 	});
 	
-	var _reactMotion = __webpack_require__(/*! react-motion */ 155);
+	var _reactMotion = __webpack_require__(/*! react-motion */ 156);
 	
 	var fadeConfig = { stiffness: 200, damping: 22 };
 	var popConfig = { stiffness: 360, damping: 25 };
@@ -10341,7 +10515,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../~/webpack/buildin/module.js */ 7)(module)))
 
 /***/ },
-/* 150 */
+/* 151 */
 /*!*************************************************!*\
   !*** ./~/react-hot-loader/isReactElementish.js ***!
   \*************************************************/
@@ -10361,7 +10535,7 @@
 	module.exports = isReactElementish;
 
 /***/ },
-/* 151 */
+/* 152 */
 /*!**************************************!*\
   !*** ./~/react-motion/lib/Motion.js ***!
   \**************************************/
@@ -10610,7 +10784,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 152 */
+/* 153 */
 /*!***********************************************!*\
   !*** ./~/react-motion/lib/StaggeredMotion.js ***!
   \***********************************************/
@@ -10880,7 +11054,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 153 */
+/* 154 */
 /*!************************************************!*\
   !*** ./~/react-motion/lib/TransitionMotion.js ***!
   \************************************************/
@@ -10906,7 +11080,7 @@
 	
 	var _stepper4 = _interopRequireDefault(_stepper3);
 	
-	var _mergeDiff = __webpack_require__(/*! ./mergeDiff */ 154);
+	var _mergeDiff = __webpack_require__(/*! ./mergeDiff */ 155);
 	
 	var _mergeDiff2 = _interopRequireDefault(_mergeDiff);
 	
@@ -11376,7 +11550,7 @@
 	// that you've unmounted but that's still animating. This is where it lives
 
 /***/ },
-/* 154 */
+/* 155 */
 /*!*****************************************!*\
   !*** ./~/react-motion/lib/mergeDiff.js ***!
   \*****************************************/
@@ -11492,7 +11666,7 @@
 	// to loop through and find a key's index each time), but I no longer care
 
 /***/ },
-/* 155 */
+/* 156 */
 /*!********************************************!*\
   !*** ./~/react-motion/lib/react-motion.js ***!
   \********************************************/
@@ -11504,19 +11678,19 @@
 	
 	function _interopRequire(obj) { return obj && obj.__esModule ? obj['default'] : obj; }
 	
-	var _Motion = __webpack_require__(/*! ./Motion */ 151);
+	var _Motion = __webpack_require__(/*! ./Motion */ 152);
 	
 	exports.Motion = _interopRequire(_Motion);
 	
-	var _StaggeredMotion = __webpack_require__(/*! ./StaggeredMotion */ 152);
+	var _StaggeredMotion = __webpack_require__(/*! ./StaggeredMotion */ 153);
 	
 	exports.StaggeredMotion = _interopRequire(_StaggeredMotion);
 	
-	var _TransitionMotion = __webpack_require__(/*! ./TransitionMotion */ 153);
+	var _TransitionMotion = __webpack_require__(/*! ./TransitionMotion */ 154);
 	
 	exports.TransitionMotion = _interopRequire(_TransitionMotion);
 	
-	var _spring = __webpack_require__(/*! ./spring */ 157);
+	var _spring = __webpack_require__(/*! ./spring */ 158);
 	
 	exports.spring = _interopRequire(_spring);
 	
@@ -11526,12 +11700,12 @@
 	
 	// deprecated, dummy warning function
 	
-	var _reorderKeys = __webpack_require__(/*! ./reorderKeys */ 156);
+	var _reorderKeys = __webpack_require__(/*! ./reorderKeys */ 157);
 	
 	exports.reorderKeys = _interopRequire(_reorderKeys);
 
 /***/ },
-/* 156 */
+/* 157 */
 /*!*******************************************!*\
   !*** ./~/react-motion/lib/reorderKeys.js ***!
   \*******************************************/
@@ -11557,7 +11731,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 10)))
 
 /***/ },
-/* 157 */
+/* 158 */
 /*!**************************************!*\
   !*** ./~/react-motion/lib/spring.js ***!
   \**************************************/
@@ -11588,7 +11762,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 158 */
+/* 159 */
 /*!**************************************************!*\
   !*** ./~/react-redux/lib/components/Provider.js ***!
   \**************************************************/
@@ -11675,7 +11849,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 10)))
 
 /***/ },
-/* 159 */
+/* 160 */
 /*!*************************************************!*\
   !*** ./~/react-redux/lib/components/connect.js ***!
   \*************************************************/
@@ -11694,11 +11868,11 @@
 	
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 	
-	var _shallowEqual = __webpack_require__(/*! ../utils/shallowEqual */ 160);
+	var _shallowEqual = __webpack_require__(/*! ../utils/shallowEqual */ 161);
 	
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 	
-	var _wrapActionCreators = __webpack_require__(/*! ../utils/wrapActionCreators */ 161);
+	var _wrapActionCreators = __webpack_require__(/*! ../utils/wrapActionCreators */ 162);
 	
 	var _wrapActionCreators2 = _interopRequireDefault(_wrapActionCreators);
 	
@@ -11710,11 +11884,11 @@
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _hoistNonReactStatics = __webpack_require__(/*! hoist-non-react-statics */ 192);
+	var _hoistNonReactStatics = __webpack_require__(/*! hoist-non-react-statics */ 193);
 	
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 	
-	var _invariant = __webpack_require__(/*! invariant */ 191);
+	var _invariant = __webpack_require__(/*! invariant */ 192);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
@@ -12077,7 +12251,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 10)))
 
 /***/ },
-/* 160 */
+/* 161 */
 /*!*************************************************!*\
   !*** ./~/react-redux/lib/utils/shallowEqual.js ***!
   \*************************************************/
@@ -12111,7 +12285,7 @@
 	}
 
 /***/ },
-/* 161 */
+/* 162 */
 /*!*******************************************************!*\
   !*** ./~/react-redux/lib/utils/wrapActionCreators.js ***!
   \*******************************************************/
@@ -12131,7 +12305,7 @@
 	}
 
 /***/ },
-/* 162 */
+/* 163 */
 /*!************************************************!*\
   !*** ./~/react-router-redux/lib/middleware.js ***!
   \************************************************/
@@ -12172,7 +12346,7 @@
 	}
 
 /***/ },
-/* 163 */
+/* 164 */
 /*!******************************************!*\
   !*** ./~/react-router-redux/lib/sync.js ***!
   \******************************************/
@@ -12329,7 +12503,7 @@
 	}
 
 /***/ },
-/* 164 */
+/* 165 */
 /*!******************************************************************!*\
   !*** ./~/react-router-transition/lib/react-router-transition.js ***!
   \******************************************************************/
@@ -33711,7 +33885,7 @@
 	//# sourceMappingURL=react-router-transition.map
 
 /***/ },
-/* 165 */
+/* 166 */
 /*!**********************************************************!*\
   !*** ./~/react-tap-event-plugin/~/fbjs/lib/invariant.js ***!
   \**********************************************************/
@@ -33769,7 +33943,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 10)))
 
 /***/ },
-/* 166 */
+/* 167 */
 /*!******************************************************!*\
   !*** ./~/react-tap-event-plugin/~/fbjs/lib/keyOf.js ***!
   \******************************************************/
@@ -33812,7 +33986,7 @@
 	module.exports = keyOf;
 
 /***/ },
-/* 167 */
+/* 168 */
 /*!********************************************************!*\
   !*** ./~/react-tap-event-plugin/src/TapEventPlugin.js ***!
   \********************************************************/
@@ -33839,14 +34013,14 @@
 	
 	"use strict";
 	
-	var EventConstants = __webpack_require__(/*! react/lib/EventConstants */ 187);
-	var EventPluginUtils = __webpack_require__(/*! react/lib/EventPluginUtils */ 190);
-	var EventPropagators = __webpack_require__(/*! react/lib/EventPropagators */ 188);
-	var SyntheticUIEvent = __webpack_require__(/*! react/lib/SyntheticUIEvent */ 193);
-	var TouchEventUtils = __webpack_require__(/*! ./TouchEventUtils */ 168);
-	var ViewportMetrics = __webpack_require__(/*! react/lib/ViewportMetrics */ 194);
+	var EventConstants = __webpack_require__(/*! react/lib/EventConstants */ 188);
+	var EventPluginUtils = __webpack_require__(/*! react/lib/EventPluginUtils */ 191);
+	var EventPropagators = __webpack_require__(/*! react/lib/EventPropagators */ 189);
+	var SyntheticUIEvent = __webpack_require__(/*! react/lib/SyntheticUIEvent */ 194);
+	var TouchEventUtils = __webpack_require__(/*! ./TouchEventUtils */ 169);
+	var ViewportMetrics = __webpack_require__(/*! react/lib/ViewportMetrics */ 195);
 	
-	var keyOf = __webpack_require__(/*! fbjs/lib/keyOf */ 166);
+	var keyOf = __webpack_require__(/*! fbjs/lib/keyOf */ 167);
 	var topLevelTypes = EventConstants.topLevelTypes;
 	
 	var isStartish = EventPluginUtils.isStartish;
@@ -33991,7 +34165,7 @@
 
 
 /***/ },
-/* 168 */
+/* 169 */
 /*!*********************************************************!*\
   !*** ./~/react-tap-event-plugin/src/TouchEventUtils.js ***!
   \*********************************************************/
@@ -34042,7 +34216,7 @@
 
 
 /***/ },
-/* 169 */
+/* 170 */
 /*!***********************************************************************!*\
   !*** ./~/react-tap-event-plugin/src/defaultClickRejectionStrategy.js ***!
   \***********************************************************************/
@@ -34056,14 +34230,14 @@
 
 
 /***/ },
-/* 170 */
+/* 171 */
 /*!**************************************************************!*\
   !*** ./~/react-tap-event-plugin/src/injectTapEventPlugin.js ***!
   \**************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(/*! fbjs/lib/invariant */ 165);
-	var defaultClickRejectionStrategy = __webpack_require__(/*! ./defaultClickRejectionStrategy */ 169);
+	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(/*! fbjs/lib/invariant */ 166);
+	var defaultClickRejectionStrategy = __webpack_require__(/*! ./defaultClickRejectionStrategy */ 170);
 	
 	var alreadyInjected = false;
 	
@@ -34084,15 +34258,15 @@
 	
 	  alreadyInjected = true;
 	
-	  __webpack_require__(/*! react/lib/EventPluginHub */ 189).injection.injectEventPluginsByName({
-	    'TapEventPlugin':       __webpack_require__(/*! ./TapEventPlugin.js */ 167)(shouldRejectClick)
+	  __webpack_require__(/*! react/lib/EventPluginHub */ 190).injection.injectEventPluginsByName({
+	    'TapEventPlugin':       __webpack_require__(/*! ./TapEventPlugin.js */ 168)(shouldRejectClick)
 	  });
 	};
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 10)))
 
 /***/ },
-/* 171 */
+/* 172 */
 /*!*************************************!*\
   !*** ./~/redux-logger/lib/index.js ***!
   \*************************************/
@@ -34328,16 +34502,16 @@
 	module.exports = createLogger;
 
 /***/ },
-/* 172 */
+/* 173 */
 /*!*********************************!*\
   !*** ./~/redux-saga/effects.js ***!
   \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(/*! ./lib/effects */ 196)
+	module.exports = __webpack_require__(/*! ./lib/effects */ 197)
 
 /***/ },
-/* 173 */
+/* 174 */
 /*!************************************!*\
   !*** ./~/redux-thunk/lib/index.js ***!
   \************************************/
@@ -34368,7 +34542,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 174 */
+/* 175 */
 /*!****************************************!*\
   !*** ./~/redux/lib/applyMiddleware.js ***!
   \****************************************/
@@ -34434,7 +34608,7 @@
 	}
 
 /***/ },
-/* 175 */
+/* 176 */
 /*!*******************************************!*\
   !*** ./~/redux/lib/bindActionCreators.js ***!
   \*******************************************/
@@ -34493,7 +34667,7 @@
 	}
 
 /***/ },
-/* 176 */
+/* 177 */
 /*!****************************************!*\
   !*** ./~/redux/lib/combineReducers.js ***!
   \****************************************/
@@ -34629,7 +34803,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 10)))
 
 /***/ },
-/* 177 */
+/* 178 */
 /*!*************************************************!*\
   !*** ./~/regenerator-runtime/runtime-module.js ***!
   \*************************************************/
@@ -34653,7 +34827,7 @@
 	// Force reevalutation of runtime.js.
 	g.regeneratorRuntime = undefined;
 	
-	module.exports = __webpack_require__(/*! ./runtime */ 195);
+	module.exports = __webpack_require__(/*! ./runtime */ 196);
 	
 	if (hadRuntime) {
 	  // Restore the original runtime.
@@ -34670,7 +34844,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 178 */
+/* 179 */
 /*!***********************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/stylesheet/colors.css ***!
   \***********************************************************************/
@@ -34699,7 +34873,7 @@
 	}
 
 /***/ },
-/* 179 */
+/* 180 */
 /*!**********************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/stylesheet/reset.css ***!
   \**********************************************************************/
@@ -34728,7 +34902,7 @@
 	}
 
 /***/ },
-/* 180 */
+/* 181 */
 /*!*********************************************************************************!*\
   !*** ./redux-cordova-sqlite-flow-integrate/www/stylesheet/routerTransition.css ***!
   \*********************************************************************************/
@@ -34757,7 +34931,7 @@
 	}
 
 /***/ },
-/* 181 */
+/* 182 */
 /*!**************************************!*\
   !*** ./~/symbol-observable/index.js ***!
   \**************************************/
@@ -34766,12 +34940,12 @@
 	/* WEBPACK VAR INJECTION */(function(global) {/* global window */
 	'use strict';
 	
-	module.exports = __webpack_require__(/*! ./ponyfill */ 182)(global || window || this);
+	module.exports = __webpack_require__(/*! ./ponyfill */ 183)(global || window || this);
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 182 */
+/* 183 */
 /*!*****************************************!*\
   !*** ./~/symbol-observable/ponyfill.js ***!
   \*****************************************/
@@ -34799,7 +34973,7 @@
 
 
 /***/ },
-/* 183 */
+/* 184 */
 /*!*********************************************************************************************************!*\
   !*** delegated ./node_modules/material-ui/styles/MuiThemeProvider.js from dll-reference vendor_library ***!
   \*********************************************************************************************************/
@@ -34808,7 +34982,7 @@
 	module.exports = (__webpack_require__(2))(237);
 
 /***/ },
-/* 184 */
+/* 185 */
 /*!****************************************************************************************************!*\
   !*** delegated ./node_modules/material-ui/styles/getMuiTheme.js from dll-reference vendor_library ***!
   \****************************************************************************************************/
@@ -34817,7 +34991,7 @@
 	module.exports = (__webpack_require__(2))(238);
 
 /***/ },
-/* 185 */
+/* 186 */
 /*!*************************************************************************************!*\
   !*** delegated ./node_modules/react-dom/index.js from dll-reference vendor_library ***!
   \*************************************************************************************/
@@ -34826,7 +35000,7 @@
 	module.exports = (__webpack_require__(2))(33);
 
 /***/ },
-/* 186 */
+/* 187 */
 /*!***********************************************************************************************!*\
   !*** delegated ./node_modules/material-ui/styles/colors.js from dll-reference vendor_library ***!
   \***********************************************************************************************/
@@ -34835,7 +35009,7 @@
 	module.exports = (__webpack_require__(2))(357);
 
 /***/ },
-/* 187 */
+/* 188 */
 /*!**********************************************************************************************!*\
   !*** delegated ./node_modules/react/lib/EventConstants.js from dll-reference vendor_library ***!
   \**********************************************************************************************/
@@ -34844,7 +35018,7 @@
 	module.exports = (__webpack_require__(2))(40);
 
 /***/ },
-/* 188 */
+/* 189 */
 /*!************************************************************************************************!*\
   !*** delegated ./node_modules/react/lib/EventPropagators.js from dll-reference vendor_library ***!
   \************************************************************************************************/
@@ -34853,7 +35027,7 @@
 	module.exports = (__webpack_require__(2))(41);
 
 /***/ },
-/* 189 */
+/* 190 */
 /*!**********************************************************************************************!*\
   !*** delegated ./node_modules/react/lib/EventPluginHub.js from dll-reference vendor_library ***!
   \**********************************************************************************************/
@@ -34862,7 +35036,7 @@
 	module.exports = (__webpack_require__(2))(42);
 
 /***/ },
-/* 190 */
+/* 191 */
 /*!************************************************************************************************!*\
   !*** delegated ./node_modules/react/lib/EventPluginUtils.js from dll-reference vendor_library ***!
   \************************************************************************************************/
@@ -34871,7 +35045,7 @@
 	module.exports = (__webpack_require__(2))(44);
 
 /***/ },
-/* 191 */
+/* 192 */
 /*!***************************************************************************************!*\
   !*** delegated ./node_modules/invariant/browser.js from dll-reference vendor_library ***!
   \***************************************************************************************/
@@ -34880,7 +35054,7 @@
 	module.exports = (__webpack_require__(2))(538);
 
 /***/ },
-/* 192 */
+/* 193 */
 /*!***************************************************************************************************!*\
   !*** delegated ./node_modules/hoist-non-react-statics/index.js from dll-reference vendor_library ***!
   \***************************************************************************************************/
@@ -34889,7 +35063,7 @@
 	module.exports = (__webpack_require__(2))(573);
 
 /***/ },
-/* 193 */
+/* 194 */
 /*!************************************************************************************************!*\
   !*** delegated ./node_modules/react/lib/SyntheticUIEvent.js from dll-reference vendor_library ***!
   \************************************************************************************************/
@@ -34898,7 +35072,7 @@
 	module.exports = (__webpack_require__(2))(74);
 
 /***/ },
-/* 194 */
+/* 195 */
 /*!***********************************************************************************************!*\
   !*** delegated ./node_modules/react/lib/ViewportMetrics.js from dll-reference vendor_library ***!
   \***********************************************************************************************/
@@ -34907,7 +35081,7 @@
 	module.exports = (__webpack_require__(2))(75);
 
 /***/ },
-/* 195 */
+/* 196 */
 /*!*************************************************************************************************!*\
   !*** delegated ./node_modules/regenerator-runtime/runtime.js from dll-reference vendor_library ***!
   \*************************************************************************************************/
@@ -34916,7 +35090,7 @@
 	module.exports = (__webpack_require__(2))(885);
 
 /***/ },
-/* 196 */
+/* 197 */
 /*!********************************************************************************************!*\
   !*** delegated ./node_modules/redux-saga/lib/effects.js from dll-reference vendor_library ***!
   \********************************************************************************************/
@@ -34925,10 +35099,10 @@
 	module.exports = (__webpack_require__(2))(899);
 
 /***/ },
-/* 197 */
-/*!***************************************************************************!*\
-  !*** ./redux-cordova-sqlite-flow-integrate/www/initializer/dbEntities.js ***!
-  \***************************************************************************/
+/* 198 */
+/*!**********************************************************************!*\
+  !*** ./redux-cordova-sqlite-flow-integrate/www/entities/category.js ***!
+  \**********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(/*! ./~/react-hot-api/modules/index.js */ 3), RootInstanceProvider = __webpack_require__(/*! ./~/react-hot-loader/RootInstanceProvider.js */ 4), ReactMount = __webpack_require__(/*! react/lib/ReactMount */ 6), React = __webpack_require__(/*! react */ 1); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34939,47 +35113,858 @@
 	  value: true
 	});
 	
-	// スキーマ定義自体はdeviceReady前に可能。
-	// DBを開いたりスキーマを反映させるのはdeviceReady以後になる
-	var Category = exports.Category = persistence.define('Category', {
-	  name: 'TEXT',
-	  metaData: 'JSON'
+	var _getPrototypeOf = __webpack_require__(/*! babel-runtime/core-js/object/get-prototype-of */ 83);
+	
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+	
+	var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ 87);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _createClass2 = __webpack_require__(/*! babel-runtime/helpers/createClass */ 88);
+	
+	var _createClass3 = _interopRequireDefault(_createClass2);
+	
+	var _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ 91);
+	
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+	
+	var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ 90);
+	
+	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _immutable = __webpack_require__(/*! immutable */ 130);
+	
+	var _dbEntities = __webpack_require__(/*! ./../initializer/dbEntities */ 139);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var CategoryGen = (0, _immutable.Record)({
+	  name: '',
+	  metaData: null
 	});
 	
-	// const allCategory = Category.all().list(categories => {
-	//   categories.forEach(category => {
-	//     persistence.remove(category);
-	//     persistence.flush();
-	//   });
-	// });
+	var Category = function (_CategoryGen) {
+	  (0, _inherits3.default)(Category, _CategoryGen);
 	
-	// console.log(allCategory);
+	  function Category() {
+	    (0, _classCallCheck3.default)(this, Category);
+	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Category).apply(this, arguments));
+	  }
 	
-	// インデックスをつける
-	// Category.index('name', { unique: true });
-	// Category.index(['name', 'metaData'], {unique:true});
-	// 新規登録
-	// const newcategory1 = new Category({ name: "My category2" });
-	// newcategory1.metaData = { rating: 6 };
-	// persistence.add(newcategory1);
-	// const newcategory2 = new Category({ name: "My category1" });
-	// newcategory2.metaData = { rating: 5 };
-	// persistence.add(newcategory2);
-	// persistence.flush();
-	// 条件付きで取得
-	// Category.findBy(persistence, null, 'name', 'My category6 update!!!', category => {
-	//   console.log(category);
-	//   // 更新したいときはEntityの値を書き換えてflushすればよい
-	//   console.log('update!');
-	//   // category.name = 'My category6 update!!!';
-	//   // persistence.flush();
-	//   // 削除する
-	//   persistence.remove(category);
-	//   persistence.flush();
-	// });
+	  (0, _createClass3.default)(Category, [{
+	    key: 'save',
+	    value: function save() {
+	      console.log('save called!');
+	      var newcategory = new _dbEntities.CagegoryDbEntity({
+	        name: this.name,
+	        metaData: this.metaData
+	      });
+	      persistence.add(newcategory);
+	      persistence.flush();
+	      return true;
+	    }
+	  }], [{
+	    key: 'fromJS',
+	    value: function fromJS() {
+	      var object = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(/*! ./~/react-hot-loader/makeExportsHot.js */ 5); if (makeExportsHot(module, __webpack_require__(/*! react */ 1))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "dbEntities.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	      return new this().merge({
+	        name: object.name,
+	        metaData: object.metaData
+	      });
+	    }
+	  }]);
+	  return Category;
+	}(CategoryGen);
+	
+	exports.default = Category;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(/*! ./~/react-hot-loader/makeExportsHot.js */ 5); if (makeExportsHot(module, __webpack_require__(/*! react */ 1))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "category.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../~/webpack/buildin/module.js */ 7)(module)))
+
+/***/ },
+/* 199 */
+/*!******************************************************************************!*\
+  !*** ./redux-cordova-sqlite-flow-integrate/www/react/reducers/categories.js ***!
+  \******************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(/*! ./~/react-hot-api/modules/index.js */ 3), RootInstanceProvider = __webpack_require__(/*! ./~/react-hot-loader/RootInstanceProvider.js */ 4), ReactMount = __webpack_require__(/*! react/lib/ReactMount */ 6), React = __webpack_require__(/*! react */ 1); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _immutable = __webpack_require__(/*! immutable */ 130);
+	
+	var _constants = __webpack_require__(/*! ../actions/constants */ 46);
+	
+	var initialStateList = (0, _immutable.List)([]);
+	// const category = (state, action) => {
+	//   switch (action.type) {
+	//     case CATEGORY_ACTIONS.ADD_CATEGORY:
+	//       return Category.fromJS({
+	//         name: action.payload.name,
+	//         metaData: action.payload.metaData,
+	//       });
+	//     default:
+	//       return state;
+	//   }
+	// };
+	
+	// import Category from '../../entities/category';
+	// import { CagegoryDbEntity } from '../../initializer/dbEntities';
+	var categories = function categories() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialStateList : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case 'SET_CATEGORY_TABLE_RECORDS':
+	      {
+	        return action.payload.list;
+	      }
+	    case _constants.CATEGORY_ACTIONS.ADD_CATEGORY:
+	      {
+	        console.log('add category');
+	        return state.push(action.payload.category);
+	      }
+	    default:
+	      {
+	        return state;
+	      }
+	  }
+	};
+	
+	exports.default = categories;
+	
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(/*! ./~/react-hot-loader/makeExportsHot.js */ 5); if (makeExportsHot(module, __webpack_require__(/*! react */ 1))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "categories.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../../~/webpack/buildin/module.js */ 7)(module)))
+
+/***/ },
+/* 200 */
+/*!***********************************************!*\
+  !*** ./~/core-js/library/modules/_classof.js ***!
+  \***********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// getting tag from 19.1.3.6 Object.prototype.toString()
+	var cof = __webpack_require__(/*! ./_cof */ 56)
+	  , TAG = __webpack_require__(/*! ./_wks */ 18)('toStringTag')
+	  // ES3 wrong here
+	  , ARG = cof(function(){ return arguments; }()) == 'Arguments';
+	
+	// fallback for IE11 Script Access Denied error
+	var tryGet = function(it, key){
+	  try {
+	    return it[key];
+	  } catch(e){ /* empty */ }
+	};
+	
+	module.exports = function(it){
+	  var O, T, B;
+	  return it === undefined ? 'Undefined' : it === null ? 'Null'
+	    // @@toStringTag case
+	    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T
+	    // builtinTag case
+	    : ARG ? cof(O)
+	    // ES3 arguments fallback
+	    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
+	};
+
+/***/ },
+/* 201 */
+/*!********************************************!*\
+  !*** ./~/core-js/library/modules/_task.js ***!
+  \********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var ctx                = __webpack_require__(/*! ./_ctx */ 57)
+	  , invoke             = __webpack_require__(/*! ./_invoke */ 206)
+	  , html               = __webpack_require__(/*! ./_html */ 104)
+	  , cel                = __webpack_require__(/*! ./_dom-create */ 58)
+	  , global             = __webpack_require__(/*! ./_global */ 9)
+	  , process            = global.process
+	  , setTask            = global.setImmediate
+	  , clearTask          = global.clearImmediate
+	  , MessageChannel     = global.MessageChannel
+	  , counter            = 0
+	  , queue              = {}
+	  , ONREADYSTATECHANGE = 'onreadystatechange'
+	  , defer, channel, port;
+	var run = function(){
+	  var id = +this;
+	  if(queue.hasOwnProperty(id)){
+	    var fn = queue[id];
+	    delete queue[id];
+	    fn();
+	  }
+	};
+	var listener = function(event){
+	  run.call(event.data);
+	};
+	// Node.js 0.9+ & IE10+ has setImmediate, otherwise:
+	if(!setTask || !clearTask){
+	  setTask = function setImmediate(fn){
+	    var args = [], i = 1;
+	    while(arguments.length > i)args.push(arguments[i++]);
+	    queue[++counter] = function(){
+	      invoke(typeof fn == 'function' ? fn : Function(fn), args);
+	    };
+	    defer(counter);
+	    return counter;
+	  };
+	  clearTask = function clearImmediate(id){
+	    delete queue[id];
+	  };
+	  // Node.js 0.8-
+	  if(__webpack_require__(/*! ./_cof */ 56)(process) == 'process'){
+	    defer = function(id){
+	      process.nextTick(ctx(run, id, 1));
+	    };
+	  // Browsers with MessageChannel, includes WebWorkers
+	  } else if(MessageChannel){
+	    channel = new MessageChannel;
+	    port    = channel.port2;
+	    channel.port1.onmessage = listener;
+	    defer = ctx(port.postMessage, port, 1);
+	  // Browsers with postMessage, skip WebWorkers
+	  // IE8 has postMessage, but it's sync & typeof its postMessage is 'object'
+	  } else if(global.addEventListener && typeof postMessage == 'function' && !global.importScripts){
+	    defer = function(id){
+	      global.postMessage(id + '', '*');
+	    };
+	    global.addEventListener('message', listener, false);
+	  // IE8-
+	  } else if(ONREADYSTATECHANGE in cel('script')){
+	    defer = function(id){
+	      html.appendChild(cel('script'))[ONREADYSTATECHANGE] = function(){
+	        html.removeChild(this);
+	        run.call(id);
+	      };
+	    };
+	  // Rest old browsers
+	  } else {
+	    defer = function(id){
+	      setTimeout(ctx(run, id, 1), 0);
+	    };
+	  }
+	}
+	module.exports = {
+	  set:   setTask,
+	  clear: clearTask
+	};
+
+/***/ },
+/* 202 */
+/*!********************************************!*\
+  !*** ./~/babel-runtime/core-js/promise.js ***!
+  \********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(/*! core-js/library/fn/promise */ 203), __esModule: true };
+
+/***/ },
+/* 203 */
+/*!*****************************************!*\
+  !*** ./~/core-js/library/fn/promise.js ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(/*! ../modules/es6.object.to-string */ 124);
+	__webpack_require__(/*! ../modules/es6.string.iterator */ 125);
+	__webpack_require__(/*! ../modules/web.dom.iterable */ 129);
+	__webpack_require__(/*! ../modules/es6.promise */ 215);
+	module.exports = __webpack_require__(/*! ../modules/_core */ 8).Promise;
+
+/***/ },
+/* 204 */
+/*!***************************************************!*\
+  !*** ./~/core-js/library/modules/_an-instance.js ***!
+  \***************************************************/
+/***/ function(module, exports) {
+
+	module.exports = function(it, Constructor, name, forbiddenField){
+	  if(!(it instanceof Constructor) || (forbiddenField !== undefined && forbiddenField in it)){
+	    throw TypeError(name + ': incorrect invocation!');
+	  } return it;
+	};
+
+/***/ },
+/* 205 */
+/*!**********************************************!*\
+  !*** ./~/core-js/library/modules/_for-of.js ***!
+  \**********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var ctx         = __webpack_require__(/*! ./_ctx */ 57)
+	  , call        = __webpack_require__(/*! ./_iter-call */ 208)
+	  , isArrayIter = __webpack_require__(/*! ./_is-array-iter */ 207)
+	  , anObject    = __webpack_require__(/*! ./_an-object */ 20)
+	  , toLength    = __webpack_require__(/*! ./_to-length */ 117)
+	  , getIterFn   = __webpack_require__(/*! ./core.get-iterator-method */ 214)
+	  , BREAK       = {}
+	  , RETURN      = {};
+	var exports = module.exports = function(iterable, entries, fn, that, ITERATOR){
+	  var iterFn = ITERATOR ? function(){ return iterable; } : getIterFn(iterable)
+	    , f      = ctx(fn, that, entries ? 2 : 1)
+	    , index  = 0
+	    , length, step, iterator, result;
+	  if(typeof iterFn != 'function')throw TypeError(iterable + ' is not iterable!');
+	  // fast case for arrays with default iterator
+	  if(isArrayIter(iterFn))for(length = toLength(iterable.length); length > index; index++){
+	    result = entries ? f(anObject(step = iterable[index])[0], step[1]) : f(iterable[index]);
+	    if(result === BREAK || result === RETURN)return result;
+	  } else for(iterator = iterFn.call(iterable); !(step = iterator.next()).done; ){
+	    result = call(iterator, f, step.value, entries);
+	    if(result === BREAK || result === RETURN)return result;
+	  }
+	};
+	exports.BREAK  = BREAK;
+	exports.RETURN = RETURN;
+
+/***/ },
+/* 206 */
+/*!**********************************************!*\
+  !*** ./~/core-js/library/modules/_invoke.js ***!
+  \**********************************************/
+/***/ function(module, exports) {
+
+	// fast apply, http://jsperf.lnkit.com/fast-apply/5
+	module.exports = function(fn, args, that){
+	  var un = that === undefined;
+	  switch(args.length){
+	    case 0: return un ? fn()
+	                      : fn.call(that);
+	    case 1: return un ? fn(args[0])
+	                      : fn.call(that, args[0]);
+	    case 2: return un ? fn(args[0], args[1])
+	                      : fn.call(that, args[0], args[1]);
+	    case 3: return un ? fn(args[0], args[1], args[2])
+	                      : fn.call(that, args[0], args[1], args[2]);
+	    case 4: return un ? fn(args[0], args[1], args[2], args[3])
+	                      : fn.call(that, args[0], args[1], args[2], args[3]);
+	  } return              fn.apply(that, args);
+	};
+
+/***/ },
+/* 207 */
+/*!*****************************************************!*\
+  !*** ./~/core-js/library/modules/_is-array-iter.js ***!
+  \*****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// check on default Array iterator
+	var Iterators  = __webpack_require__(/*! ./_iterators */ 30)
+	  , ITERATOR   = __webpack_require__(/*! ./_wks */ 18)('iterator')
+	  , ArrayProto = Array.prototype;
+	
+	module.exports = function(it){
+	  return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
+	};
+
+/***/ },
+/* 208 */
+/*!*************************************************!*\
+  !*** ./~/core-js/library/modules/_iter-call.js ***!
+  \*************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// call something on iterator step with safe closing on error
+	var anObject = __webpack_require__(/*! ./_an-object */ 20);
+	module.exports = function(iterator, fn, value, entries){
+	  try {
+	    return entries ? fn(anObject(value)[0], value[1]) : fn(value);
+	  // 7.4.6 IteratorClose(iterator, completion)
+	  } catch(e){
+	    var ret = iterator['return'];
+	    if(ret !== undefined)anObject(ret.call(iterator));
+	    throw e;
+	  }
+	};
+
+/***/ },
+/* 209 */
+/*!***************************************************!*\
+  !*** ./~/core-js/library/modules/_iter-detect.js ***!
+  \***************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var ITERATOR     = __webpack_require__(/*! ./_wks */ 18)('iterator')
+	  , SAFE_CLOSING = false;
+	
+	try {
+	  var riter = [7][ITERATOR]();
+	  riter['return'] = function(){ SAFE_CLOSING = true; };
+	  Array.from(riter, function(){ throw 2; });
+	} catch(e){ /* empty */ }
+	
+	module.exports = function(exec, skipClosing){
+	  if(!skipClosing && !SAFE_CLOSING)return false;
+	  var safe = false;
+	  try {
+	    var arr  = [7]
+	      , iter = arr[ITERATOR]();
+	    iter.next = function(){ return {done: safe = true}; };
+	    arr[ITERATOR] = function(){ return iter; };
+	    exec(arr);
+	  } catch(e){ /* empty */ }
+	  return safe;
+	};
+
+/***/ },
+/* 210 */
+/*!*************************************************!*\
+  !*** ./~/core-js/library/modules/_microtask.js ***!
+  \*************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var global    = __webpack_require__(/*! ./_global */ 9)
+	  , macrotask = __webpack_require__(/*! ./_task */ 201).set
+	  , Observer  = global.MutationObserver || global.WebKitMutationObserver
+	  , process   = global.process
+	  , Promise   = global.Promise
+	  , isNode    = __webpack_require__(/*! ./_cof */ 56)(process) == 'process';
+	
+	module.exports = function(){
+	  var head, last, notify;
+	
+	  var flush = function(){
+	    var parent, fn;
+	    if(isNode && (parent = process.domain))parent.exit();
+	    while(head){
+	      fn   = head.fn;
+	      head = head.next;
+	      try {
+	        fn();
+	      } catch(e){
+	        if(head)notify();
+	        else last = undefined;
+	        throw e;
+	      }
+	    } last = undefined;
+	    if(parent)parent.enter();
+	  };
+	
+	  // Node.js
+	  if(isNode){
+	    notify = function(){
+	      process.nextTick(flush);
+	    };
+	  // browsers with MutationObserver
+	  } else if(Observer){
+	    var toggle = true
+	      , node   = document.createTextNode('');
+	    new Observer(flush).observe(node, {characterData: true}); // eslint-disable-line no-new
+	    notify = function(){
+	      node.data = toggle = !toggle;
+	    };
+	  // environments with maybe non-completely correct, but existent Promise
+	  } else if(Promise && Promise.resolve){
+	    var promise = Promise.resolve();
+	    notify = function(){
+	      promise.then(flush);
+	    };
+	  // for other environments - macrotask based on:
+	  // - setImmediate
+	  // - MessageChannel
+	  // - window.postMessag
+	  // - onreadystatechange
+	  // - setTimeout
+	  } else {
+	    notify = function(){
+	      // strange IE + webpack dev server bug - use .call(global)
+	      macrotask.call(global, flush);
+	    };
+	  }
+	
+	  return function(fn){
+	    var task = {fn: fn, next: undefined};
+	    if(last)last.next = task;
+	    if(!head){
+	      head = task;
+	      notify();
+	    } last = task;
+	  };
+	};
+
+/***/ },
+/* 211 */
+/*!****************************************************!*\
+  !*** ./~/core-js/library/modules/_redefine-all.js ***!
+  \****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var hide = __webpack_require__(/*! ./_hide */ 17);
+	module.exports = function(target, src, safe){
+	  for(var key in src){
+	    if(safe && target[key])target[key] = src[key];
+	    else hide(target, key, src[key]);
+	  } return target;
+	};
+
+/***/ },
+/* 212 */
+/*!***************************************************!*\
+  !*** ./~/core-js/library/modules/_set-species.js ***!
+  \***************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var global      = __webpack_require__(/*! ./_global */ 9)
+	  , core        = __webpack_require__(/*! ./_core */ 8)
+	  , dP          = __webpack_require__(/*! ./_object-dp */ 14)
+	  , DESCRIPTORS = __webpack_require__(/*! ./_descriptors */ 11)
+	  , SPECIES     = __webpack_require__(/*! ./_wks */ 18)('species');
+	
+	module.exports = function(KEY){
+	  var C = typeof core[KEY] == 'function' ? core[KEY] : global[KEY];
+	  if(DESCRIPTORS && C && !C[SPECIES])dP.f(C, SPECIES, {
+	    configurable: true,
+	    get: function(){ return this; }
+	  });
+	};
+
+/***/ },
+/* 213 */
+/*!***********************************************************!*\
+  !*** ./~/core-js/library/modules/_species-constructor.js ***!
+  \***********************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.3.20 SpeciesConstructor(O, defaultConstructor)
+	var anObject  = __webpack_require__(/*! ./_an-object */ 20)
+	  , aFunction = __webpack_require__(/*! ./_a-function */ 100)
+	  , SPECIES   = __webpack_require__(/*! ./_wks */ 18)('species');
+	module.exports = function(O, D){
+	  var C = anObject(O).constructor, S;
+	  return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
+	};
+
+/***/ },
+/* 214 */
+/*!***************************************************************!*\
+  !*** ./~/core-js/library/modules/core.get-iterator-method.js ***!
+  \***************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var classof   = __webpack_require__(/*! ./_classof */ 200)
+	  , ITERATOR  = __webpack_require__(/*! ./_wks */ 18)('iterator')
+	  , Iterators = __webpack_require__(/*! ./_iterators */ 30);
+	module.exports = __webpack_require__(/*! ./_core */ 8).getIteratorMethod = function(it){
+	  if(it != undefined)return it[ITERATOR]
+	    || it['@@iterator']
+	    || Iterators[classof(it)];
+	};
+
+/***/ },
+/* 215 */
+/*!**************************************************!*\
+  !*** ./~/core-js/library/modules/es6.promise.js ***!
+  \**************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var LIBRARY            = __webpack_require__(/*! ./_library */ 31)
+	  , global             = __webpack_require__(/*! ./_global */ 9)
+	  , ctx                = __webpack_require__(/*! ./_ctx */ 57)
+	  , classof            = __webpack_require__(/*! ./_classof */ 200)
+	  , $export            = __webpack_require__(/*! ./_export */ 12)
+	  , isObject           = __webpack_require__(/*! ./_is-object */ 21)
+	  , aFunction          = __webpack_require__(/*! ./_a-function */ 100)
+	  , anInstance         = __webpack_require__(/*! ./_an-instance */ 204)
+	  , forOf              = __webpack_require__(/*! ./_for-of */ 205)
+	  , speciesConstructor = __webpack_require__(/*! ./_species-constructor */ 213)
+	  , task               = __webpack_require__(/*! ./_task */ 201).set
+	  , microtask          = __webpack_require__(/*! ./_microtask */ 210)()
+	  , PROMISE            = 'Promise'
+	  , TypeError          = global.TypeError
+	  , process            = global.process
+	  , $Promise           = global[PROMISE]
+	  , process            = global.process
+	  , isNode             = classof(process) == 'process'
+	  , empty              = function(){ /* empty */ }
+	  , Internal, GenericPromiseCapability, Wrapper;
+	
+	var USE_NATIVE = !!function(){
+	  try {
+	    // correct subclassing with @@species support
+	    var promise     = $Promise.resolve(1)
+	      , FakePromise = (promise.constructor = {})[__webpack_require__(/*! ./_wks */ 18)('species')] = function(exec){ exec(empty, empty); };
+	    // unhandled rejections tracking support, NodeJS Promise without it fails @@species test
+	    return (isNode || typeof PromiseRejectionEvent == 'function') && promise.then(empty) instanceof FakePromise;
+	  } catch(e){ /* empty */ }
+	}();
+	
+	// helpers
+	var sameConstructor = function(a, b){
+	  // with library wrapper special case
+	  return a === b || a === $Promise && b === Wrapper;
+	};
+	var isThenable = function(it){
+	  var then;
+	  return isObject(it) && typeof (then = it.then) == 'function' ? then : false;
+	};
+	var newPromiseCapability = function(C){
+	  return sameConstructor($Promise, C)
+	    ? new PromiseCapability(C)
+	    : new GenericPromiseCapability(C);
+	};
+	var PromiseCapability = GenericPromiseCapability = function(C){
+	  var resolve, reject;
+	  this.promise = new C(function($$resolve, $$reject){
+	    if(resolve !== undefined || reject !== undefined)throw TypeError('Bad Promise constructor');
+	    resolve = $$resolve;
+	    reject  = $$reject;
+	  });
+	  this.resolve = aFunction(resolve);
+	  this.reject  = aFunction(reject);
+	};
+	var perform = function(exec){
+	  try {
+	    exec();
+	  } catch(e){
+	    return {error: e};
+	  }
+	};
+	var notify = function(promise, isReject){
+	  if(promise._n)return;
+	  promise._n = true;
+	  var chain = promise._c;
+	  microtask(function(){
+	    var value = promise._v
+	      , ok    = promise._s == 1
+	      , i     = 0;
+	    var run = function(reaction){
+	      var handler = ok ? reaction.ok : reaction.fail
+	        , resolve = reaction.resolve
+	        , reject  = reaction.reject
+	        , domain  = reaction.domain
+	        , result, then;
+	      try {
+	        if(handler){
+	          if(!ok){
+	            if(promise._h == 2)onHandleUnhandled(promise);
+	            promise._h = 1;
+	          }
+	          if(handler === true)result = value;
+	          else {
+	            if(domain)domain.enter();
+	            result = handler(value);
+	            if(domain)domain.exit();
+	          }
+	          if(result === reaction.promise){
+	            reject(TypeError('Promise-chain cycle'));
+	          } else if(then = isThenable(result)){
+	            then.call(result, resolve, reject);
+	          } else resolve(result);
+	        } else reject(value);
+	      } catch(e){
+	        reject(e);
+	      }
+	    };
+	    while(chain.length > i)run(chain[i++]); // variable length - can't use forEach
+	    promise._c = [];
+	    promise._n = false;
+	    if(isReject && !promise._h)onUnhandled(promise);
+	  });
+	};
+	var onUnhandled = function(promise){
+	  task.call(global, function(){
+	    var value = promise._v
+	      , abrupt, handler, console;
+	    if(isUnhandled(promise)){
+	      abrupt = perform(function(){
+	        if(isNode){
+	          process.emit('unhandledRejection', value, promise);
+	        } else if(handler = global.onunhandledrejection){
+	          handler({promise: promise, reason: value});
+	        } else if((console = global.console) && console.error){
+	          console.error('Unhandled promise rejection', value);
+	        }
+	      });
+	      // Browsers should not trigger `rejectionHandled` event if it was handled here, NodeJS - should
+	      promise._h = isNode || isUnhandled(promise) ? 2 : 1;
+	    } promise._a = undefined;
+	    if(abrupt)throw abrupt.error;
+	  });
+	};
+	var isUnhandled = function(promise){
+	  if(promise._h == 1)return false;
+	  var chain = promise._a || promise._c
+	    , i     = 0
+	    , reaction;
+	  while(chain.length > i){
+	    reaction = chain[i++];
+	    if(reaction.fail || !isUnhandled(reaction.promise))return false;
+	  } return true;
+	};
+	var onHandleUnhandled = function(promise){
+	  task.call(global, function(){
+	    var handler;
+	    if(isNode){
+	      process.emit('rejectionHandled', promise);
+	    } else if(handler = global.onrejectionhandled){
+	      handler({promise: promise, reason: promise._v});
+	    }
+	  });
+	};
+	var $reject = function(value){
+	  var promise = this;
+	  if(promise._d)return;
+	  promise._d = true;
+	  promise = promise._w || promise; // unwrap
+	  promise._v = value;
+	  promise._s = 2;
+	  if(!promise._a)promise._a = promise._c.slice();
+	  notify(promise, true);
+	};
+	var $resolve = function(value){
+	  var promise = this
+	    , then;
+	  if(promise._d)return;
+	  promise._d = true;
+	  promise = promise._w || promise; // unwrap
+	  try {
+	    if(promise === value)throw TypeError("Promise can't be resolved itself");
+	    if(then = isThenable(value)){
+	      microtask(function(){
+	        var wrapper = {_w: promise, _d: false}; // wrap
+	        try {
+	          then.call(value, ctx($resolve, wrapper, 1), ctx($reject, wrapper, 1));
+	        } catch(e){
+	          $reject.call(wrapper, e);
+	        }
+	      });
+	    } else {
+	      promise._v = value;
+	      promise._s = 1;
+	      notify(promise, false);
+	    }
+	  } catch(e){
+	    $reject.call({_w: promise, _d: false}, e); // wrap
+	  }
+	};
+	
+	// constructor polyfill
+	if(!USE_NATIVE){
+	  // 25.4.3.1 Promise(executor)
+	  $Promise = function Promise(executor){
+	    anInstance(this, $Promise, PROMISE, '_h');
+	    aFunction(executor);
+	    Internal.call(this);
+	    try {
+	      executor(ctx($resolve, this, 1), ctx($reject, this, 1));
+	    } catch(err){
+	      $reject.call(this, err);
+	    }
+	  };
+	  Internal = function Promise(executor){
+	    this._c = [];             // <- awaiting reactions
+	    this._a = undefined;      // <- checked in isUnhandled reactions
+	    this._s = 0;              // <- state
+	    this._d = false;          // <- done
+	    this._v = undefined;      // <- value
+	    this._h = 0;              // <- rejection state, 0 - default, 1 - handled, 2 - unhandled
+	    this._n = false;          // <- notify
+	  };
+	  Internal.prototype = __webpack_require__(/*! ./_redefine-all */ 211)($Promise.prototype, {
+	    // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
+	    then: function then(onFulfilled, onRejected){
+	      var reaction    = newPromiseCapability(speciesConstructor(this, $Promise));
+	      reaction.ok     = typeof onFulfilled == 'function' ? onFulfilled : true;
+	      reaction.fail   = typeof onRejected == 'function' && onRejected;
+	      reaction.domain = isNode ? process.domain : undefined;
+	      this._c.push(reaction);
+	      if(this._a)this._a.push(reaction);
+	      if(this._s)notify(this, false);
+	      return reaction.promise;
+	    },
+	    // 25.4.5.1 Promise.prototype.catch(onRejected)
+	    'catch': function(onRejected){
+	      return this.then(undefined, onRejected);
+	    }
+	  });
+	  PromiseCapability = function(){
+	    var promise  = new Internal;
+	    this.promise = promise;
+	    this.resolve = ctx($resolve, promise, 1);
+	    this.reject  = ctx($reject, promise, 1);
+	  };
+	}
+	
+	$export($export.G + $export.W + $export.F * !USE_NATIVE, {Promise: $Promise});
+	__webpack_require__(/*! ./_set-to-string-tag */ 34)($Promise, PROMISE);
+	__webpack_require__(/*! ./_set-species */ 212)(PROMISE);
+	Wrapper = __webpack_require__(/*! ./_core */ 8)[PROMISE];
+	
+	// statics
+	$export($export.S + $export.F * !USE_NATIVE, PROMISE, {
+	  // 25.4.4.5 Promise.reject(r)
+	  reject: function reject(r){
+	    var capability = newPromiseCapability(this)
+	      , $$reject   = capability.reject;
+	    $$reject(r);
+	    return capability.promise;
+	  }
+	});
+	$export($export.S + $export.F * (LIBRARY || !USE_NATIVE), PROMISE, {
+	  // 25.4.4.6 Promise.resolve(x)
+	  resolve: function resolve(x){
+	    // instanceof instead of internal slot check because we should fix it without replacement native Promise core
+	    if(x instanceof $Promise && sameConstructor(x.constructor, this))return x;
+	    var capability = newPromiseCapability(this)
+	      , $$resolve  = capability.resolve;
+	    $$resolve(x);
+	    return capability.promise;
+	  }
+	});
+	$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(/*! ./_iter-detect */ 209)(function(iter){
+	  $Promise.all(iter)['catch'](empty);
+	})), PROMISE, {
+	  // 25.4.4.1 Promise.all(iterable)
+	  all: function all(iterable){
+	    var C          = this
+	      , capability = newPromiseCapability(C)
+	      , resolve    = capability.resolve
+	      , reject     = capability.reject;
+	    var abrupt = perform(function(){
+	      var values    = []
+	        , index     = 0
+	        , remaining = 1;
+	      forOf(iterable, false, function(promise){
+	        var $index        = index++
+	          , alreadyCalled = false;
+	        values.push(undefined);
+	        remaining++;
+	        C.resolve(promise).then(function(value){
+	          if(alreadyCalled)return;
+	          alreadyCalled  = true;
+	          values[$index] = value;
+	          --remaining || resolve(values);
+	        }, reject);
+	      });
+	      --remaining || resolve(values);
+	    });
+	    if(abrupt)reject(abrupt.error);
+	    return capability.promise;
+	  },
+	  // 25.4.4.4 Promise.race(iterable)
+	  race: function race(iterable){
+	    var C          = this
+	      , capability = newPromiseCapability(C)
+	      , reject     = capability.reject;
+	    var abrupt = perform(function(){
+	      forOf(iterable, false, function(promise){
+	        C.resolve(promise).then(capability.resolve, reject);
+	      });
+	    });
+	    if(abrupt)reject(abrupt.error);
+	    return capability.promise;
+	  }
+	});
 
 /***/ }
 /******/ ]);

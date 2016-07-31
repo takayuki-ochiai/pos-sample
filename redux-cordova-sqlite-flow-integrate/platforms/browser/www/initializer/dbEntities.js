@@ -1,7 +1,6 @@
-
 // スキーマ定義自体はdeviceReady前に可能。
 // DBを開いたりスキーマを反映させるのはdeviceReady以後になる
-export const Category = persistence.define('Category', {
+export const CagegoryDbEntity = persistence.define('Category', {
   name: 'TEXT',
   metaData: 'JSON',
 });
