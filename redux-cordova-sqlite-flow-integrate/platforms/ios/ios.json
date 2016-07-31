@@ -15,6 +15,10 @@
                         {
                             "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SQLitePlugin\"><param name=\"ios-package\" value=\"SQLitePlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -32,6 +36,9 @@
             "PACKAGE_NAME": "com.tochiai.integrate"
         },
         "cordova-plugin-browsersync": {
+            "PACKAGE_NAME": "com.tochiai.integrate"
+        },
+        "cordova-sqlite-storage": {
             "PACKAGE_NAME": "com.tochiai.integrate"
         }
     },
@@ -60,12 +67,21 @@
             "clobbers": [
                 "device"
             ]
+        },
+        {
+            "id": "cordova-sqlite-storage.SQLitePlugin",
+            "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+            "pluginId": "cordova-sqlite-storage",
+            "clobbers": [
+                "SQLitePlugin"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-console": "1.0.3",
         "cordova-plugin-device": "1.1.2",
         "cordova-plugin-whitelist": "1.2.2",
-        "cordova-plugin-browsersync": "0.1.1"
+        "cordova-plugin-browsersync": "0.1.1",
+        "cordova-sqlite-storage": "1.4.6-pre6a"
     }
 }

@@ -13,6 +13,14 @@ module.exports = [
         "id": "cordova-plugin-device.DeviceProxy",
         "pluginId": "cordova-plugin-device",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+        "id": "cordova-sqlite-storage.SQLitePlugin",
+        "pluginId": "cordova-sqlite-storage",
+        "clobbers": [
+            "SQLitePlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -21,7 +29,8 @@ module.exports.metadata =
     "cordova-plugin-device": "1.1.2",
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-console": "1.0.3",
-    "cordova-plugin-browsersync": "0.1.1"
+    "cordova-plugin-browsersync": "0.1.1",
+    "cordova-sqlite-storage": "1.4.6-pre6a"
 }
 // BOTTOM OF METADATA
 });

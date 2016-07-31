@@ -18,6 +18,9 @@
         },
         "cordova-plugin-browsersync": {
             "PACKAGE_NAME": "com.tochiai.integrate"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.tochiai.integrate"
         }
     },
     "dependent_plugins": {}

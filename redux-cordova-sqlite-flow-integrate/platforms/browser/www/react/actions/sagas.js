@@ -24,13 +24,28 @@ function* handleDeviceReadySaga() {
   yield take(ON_DEVICE_READY);
   // webSQLならcordovaでdivicereadyイベントが発火する前でもDB定義を開始できるが、原則browserでの確認もcordova browserを使用する想定
   console.log("start dbsetup in handleDeviceReadySaga");
-  persistence.store.websql.config(
-    persistence,
-    'testdb',
-    'テスト用のDBをセットアップします',
-    5 * 1024 * 1024
-  );
-  persistence.schemaSync();
+  console.log('platform is ' + device.platform);
+
+  if (device.platform === 'iOS') {
+    console.log('iOS db setup start!!');
+    persistence.store.cordovasql.config(
+      persistence,
+      'testdb',
+      '0.0.1',                // DB version
+      'testdb',          // DB display name
+      5 * 1024 * 1024,        // DB size (WebSQL fallback only)
+      0,                      // SQLitePlugin Background processing disabled
+      2
+    );
+  } else { // cordova browserでエミュレートしてるときはdevice.platformは "browser"
+    persistence.store.websql.config(
+      persistence,
+      'testdb',
+      'テスト用のDBをセットアップします',
+      5 * 1024 * 1024
+    );
+    persistence.schemaSync();
+  }
   console.log('start fetch db data');
   // DBのデータを取得してreducerにセットする処理を発行
   yield put({ type: FETCH_DB_DATA });

@@ -1,6 +1,13 @@
 /* @flow */
-import { ROUTER_TRANSITION_ACTIONS, ON_DEVICE_READY } from './constants';
+import { ROUTER_TRANSITION_ACTIONS, ON_DEVICE_READY, CATEGORY_ACTIONS } from './constants';
 import { push } from 'react-router-redux';
+
+export const addCategory = category => ({
+  type: CATEGORY_ACTIONS.ADD_CATEGORY,
+  payload: {
+    category,
+  },
+});
 
 export const sagaTake = () => ({ type: 'SAGA_TAKE' });
 
