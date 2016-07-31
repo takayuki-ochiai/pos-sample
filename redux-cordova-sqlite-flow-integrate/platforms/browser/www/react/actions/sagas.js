@@ -44,8 +44,8 @@ function* handleDeviceReadySaga() {
       'テスト用のDBをセットアップします',
       5 * 1024 * 1024
     );
-    persistence.schemaSync();
   }
+  persistence.schemaSync();
   console.log('start fetch db data');
   // DBのデータを取得してreducerにセットする処理を発行
   yield put({ type: FETCH_DB_DATA });

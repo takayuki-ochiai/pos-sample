@@ -27,16 +27,31 @@ function* handleDeviceReadySaga() {
   console.log('platform is ' + device.platform);
 
   if (device.platform === 'iOS') {
+
+    console.log('persistence');
+    console.log(persistence);
+    console.log('persistence.store');
+    console.log(persistence.store);
+    console.log('persistence.store.cordovasql');
+    console.log(persistence.store.cordovasql);
+    console.log('persistence.store.cordovasql.config');
+    console.log(persistence.store.cordovasql.config);
     console.log('iOS db setup start!!');
-    persistence.store.cordovasql.config(
-      persistence,
-      'testdb',
-      '0.0.1',                // DB version
-      'testdb',          // DB display name
-      5 * 1024 * 1024,        // DB size (WebSQL fallback only)
-      0,                      // SQLitePlugin Background processing disabled
-      2
-    );
+    try {
+      persistence.store.cordovasql.config(
+        persistence,
+        'eltex.regi',
+        '0.0.1',                // DB version
+        'testdb',          // DB display name
+        5 * 1024 * 1024,        // DB size (WebSQL fallback only)
+        0,                      // SQLitePlugin Background processing disabled
+        0
+      );
+    } catch (e) {
+      console.log("cordovasqlでエラー発生");
+      console.log(e);
+    }
+
   } else { // cordova browserでエミュレートしてるときはdevice.platformは "browser"
     persistence.store.websql.config(
       persistence,

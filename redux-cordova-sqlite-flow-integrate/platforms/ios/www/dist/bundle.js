@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9e5df9d1a965998fa82a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "06b413366722d8ac350c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -10520,12 +10520,26 @@
 	          console.log('platform is ' + device.platform);
 	
 	          if (device.platform === 'iOS') {
+	
+	            console.log('persistence');
+	            console.log(persistence);
+	            console.log('persistence.store');
+	            console.log(persistence.store);
+	            console.log('persistence.store.cordovasql');
+	            console.log(persistence.store.cordovasql);
+	            console.log('persistence.store.cordovasql.config');
+	            console.log(persistence.store.cordovasql.config);
 	            console.log('iOS db setup start!!');
-	            persistence.store.cordovasql.config(persistence, 'testdb', '0.0.1', // DB version
-	            'testdb', // DB display name
-	            5 * 1024 * 1024, // DB size (WebSQL fallback only)
-	            0, // SQLitePlugin Background processing disabled
-	            2);
+	            try {
+	              persistence.store.cordovasql.config(persistence, 'eltex.regi', '0.0.1', // DB version
+	              'testdb', // DB display name
+	              5 * 1024 * 1024, // DB size (WebSQL fallback only)
+	              0, // SQLitePlugin Background processing disabled
+	              0);
+	            } catch (e) {
+	              console.log("cordovasqlでエラー発生");
+	              console.log(e);
+	            }
 	          } else {
 	            // cordova browserでエミュレートしてるときはdevice.platformは "browser"
 	            persistence.store.websql.config(persistence, 'testdb', 'テスト用のDBをセットアップします', 5 * 1024 * 1024);
@@ -10999,6 +11013,14 @@
 	
 	  window.sqlitePlugin.selfTest(function () {
 	    console.log('SELF test OK');
+	  });
+	
+	  window.sqlitePlugin.openDatabase({ name: 'hello-world.db', location: 'default' }, function (db) {
+	    db.executeSql("select length('tenletters') as stringlength", [], function (res) {
+	      var stringlength = res.rows.item(0).stringlength;
+	      console.log('got stringlength: ' + stringlength);
+	      document.getElementById('deviceready').querySelector('.received').innerHTML = 'stringlength: ' + stringlength;
+	    });
 	  });
 	
 	  store.dispatch((0, _actions.deviceReady)());
