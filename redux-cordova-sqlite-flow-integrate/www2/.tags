@@ -1,0 +1,4 @@
+constructor	/Users/TakayukiOchiai/redux-prac/redux-saga-test/react/components/page/Root.js	/^  constructor(props: Object) {$/;"	function	line:10
+onClickButton	/Users/TakayukiOchiai/redux-prac/redux-saga-test/react/components/page/Root.js	/^  onClickButton() {$/;"	function	line:16
+render	/Users/TakayukiOchiai/redux-prac/redux-saga-test/react/components/page/Root.js	/^  render() {$/;"	function	line:21
+Root	/Users/TakayukiOchiai/redux-prac/redux-saga-test/react/components/page/Root.js	/^\/\/ function Root() {$/;"	function	line:31

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello React aaa!</title>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ws: 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+    <!-- Material UIが使用しているフォント  -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'> -->
+    <link href='./stylesheet/reset.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script src="./lib/persistence.js"></script>
+  <script src="./lib/persistence.store.sql.js"></script>
+  <script src="./lib/persistence.store.cordovasql.js"></script>
+  <script src="./lib/persistence.store.websql.js"></script>
+
+  <!-- scriptの読み込みを最後にしないと、ReactがTarget container is not a DOM element.みたいなエラーを出して焦るので注意。 -->
+  <script type="text/javascript" src="./dist/vendor.dll.js"></script>
+  <script type="text/javascript" src="./dist/bundle.js"></script>
+  <!-- <script type="text/javascript" src="./dist/bundle.js.gz"></script> -->
+</html>
