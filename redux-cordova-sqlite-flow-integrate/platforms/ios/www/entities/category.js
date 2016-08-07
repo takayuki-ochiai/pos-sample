@@ -1,7 +1,9 @@
 import { Record } from 'immutable';
-import { CagegoryDbEntity } from './../initializer/dbEntities';
+import { CagegoryDbEntity } from '../initializer/dbEntities';
+import { CATEGORY_ACTIONS } from '../react/actions/constants';
+import GenBase from './GenBase';
 
-const CategoryGen = Record({
+const CategoryGen = new GenBase({
   name: '',
   metaData: null,
 });
@@ -14,14 +16,11 @@ export default class Category extends CategoryGen {
     });
   }
 
-  save() {
-    console.log('save called!');
-    const newcategory = new CagegoryDbEntity({
-      name: this.name,
-      metaData: this.metaData,
-    });
-    persistence.add(newcategory);
-    persistence.flush();
-    return true;
+  get actions() {
+    return CATEGORY_ACTIONS;
+  }
+
+  createEntity() {
+    return new CagegoryDbEntity(this.toJS());
   }
 }

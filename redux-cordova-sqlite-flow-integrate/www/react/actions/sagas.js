@@ -1,12 +1,10 @@
 import { takeEvery, delay } from 'redux-saga';
 import { call, fork, take, put } from 'redux-saga/effects';
-import { ON_DEVICE_READY, DB_ACTIONS } from './constants';
-import { handleSelectDbSaga } from './dbSaga';
+import { ON_DEVICE_READY } from './constants';
+import { handleSelectDbSaga, handleInsertDbSaga } from './dbSaga';
 import { selectDb } from './dbActions';
 
-import { List } from 'immutable';
 // import Todo from './entities/Todo';
-import Category from '../../entities/category';
 import { CagegoryDbEntity } from '../../initializer/dbEntities';
 
 function* scream(action) {
@@ -58,4 +56,5 @@ export default function* rootSaga() {
   yield fork(handleRequestSaga);
   yield fork(handleDeviceReadySaga);
   yield fork(handleSelectDbSaga);
+  yield fork(handleInsertDbSaga);
 }

@@ -26,14 +26,14 @@ const runSelectDb = function* runSelectDb(action) {
     }
   }
   const records = List(entities.map(entity => (recordClass.fromJS(entity))));
-  yield put(recordClass.setList(records));
-  // yield put({
-  //   // TODO ここのアクション発行の切り分けもしないといけない
-  //   type: 'SET_CATEGORY_TABLE_RECORDS',
-  //   payload: {
-  //     list: records,
-  //   },
-  // });
+
+  yield put({
+    // TODO ここのアクション発行の切り分けもしないといけない
+    type: 'SET_CATEGORY_TABLE_RECORDS',
+    payload: {
+      list: records,
+    },
+  });
 };
 
 export const handleSelectDbSaga = function* handleSelectDbSaga() {

@@ -5,6 +5,9 @@ export const CagegoryDbEntity = persistence.define('Category', {
   metaData: 'JSON',
 });
 
+CagegoryDbEntity.index('name', { unique: true });
+
+
 // const allCategory = Category.all().list(categories => {
 //   categories.forEach(category => {
 //     persistence.remove(category);

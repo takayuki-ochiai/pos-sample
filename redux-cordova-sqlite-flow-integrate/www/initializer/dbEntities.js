@@ -1,3 +1,4 @@
+// import Category from '../entities/category';
 // スキーマ定義自体はdeviceReady前に可能。
 // DBを開いたりスキーマを反映させるのはdeviceReady以後になる
 export const CagegoryDbEntity = persistence.define('Category', {
@@ -6,7 +7,7 @@ export const CagegoryDbEntity = persistence.define('Category', {
 });
 
 CagegoryDbEntity.index('name', { unique: true });
-
+// CagegoryDbEntity.recordClass = Category;
 
 // const allCategory = Category.all().list(categories => {
 //   categories.forEach(category => {

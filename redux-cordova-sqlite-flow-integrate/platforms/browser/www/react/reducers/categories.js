@@ -4,26 +4,15 @@ import { List } from 'immutable';
 import { CATEGORY_ACTIONS } from '../actions/constants';
 
 const initialStateList = List([]);
-// const category = (state, action) => {
-//   switch (action.type) {
-//     case CATEGORY_ACTIONS.ADD_CATEGORY:
-//       return Category.fromJS({
-//         name: action.payload.name,
-//         metaData: action.payload.metaData,
-//       });
-//     default:
-//       return state;
-//   }
-// };
 
 const categories = (state = initialStateList, action) => {
   switch (action.type) {
-    case 'SET_CATEGORY_TABLE_RECORDS': {
-      return action.payload.list;
+    case CATEGORY_ACTIONS.SET_LIST: {
+      return action.list;
     }
-    case CATEGORY_ACTIONS.ADD_CATEGORY: {
+    case CATEGORY_ACTIONS.ADD: {
       console.log('add category');
-      return state.push(action.payload.category);
+      return state.push(action.record);
     }
     default: {
       return state;

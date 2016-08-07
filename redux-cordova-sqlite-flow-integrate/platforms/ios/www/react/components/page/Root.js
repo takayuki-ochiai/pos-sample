@@ -14,15 +14,24 @@ class Root extends React.Component {
   }
 
   onClickInsertButton() {
-    this.props.dispatch(sagaTake());
+    // this.props.dispatch(sagaTake());
     console.log('dbinsert start!!!');
-    const newcategory1 = Category.fromJS({
-      name: 'My category3',
+    const rand = (Math.random() * 200);
+    const newcategory = Category.fromJS({
+      name: `My category test`,
       metaData: { rating: 1 },
     });
-    if (newcategory1.save()) {
-      this.props.dispatch(addCategory(newcategory1));
-    }
+    this.props.dispatch({
+      type: 'DB_INSERT',
+      record: newcategory,
+    });
+    // const newcategory1 = Category.fromJS({
+    //   name: `My category ${rand}`,
+    //   metaData: { rating: 1 },
+    // });
+    // if (newcategory1.save()) {
+    //   this.props.dispatch(addCategory(newcategory1));
+    // }
   }
 
   render() {
