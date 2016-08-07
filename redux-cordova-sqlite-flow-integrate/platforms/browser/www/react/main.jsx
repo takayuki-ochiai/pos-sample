@@ -61,13 +61,6 @@ storeObject.startSaga();
 
 document.addEventListener('deviceready', () => {
   console.log('deviceready');
-  // window.sqlitePlugin.echoTest(function() {
-  //   console.log('ECHO test OK');
-  // });
-  //
-  // window.sqlitePlugin.selfTest(function() {
-  //   console.log('SELF test OK');
-  // });
 
   store.dispatch(deviceReady());
 }, false);

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7F588C4E0AD48C7604C6BC6A042E8A2FAF093543",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7F588C4E0AD48C7604C6BC6A042E8A2FAF093543" : 0,
+    "B7A362D37696458230FFFD86AE3E8EDFD69AA944" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "30ACCE8E-1706-4651-8AF3-017A09E35315",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7F588C4E0AD48C7604C6BC6A042E8A2FAF093543" : "integrate\/",
+    "B7A362D37696458230FFFD86AE3E8EDFD69AA944" : "integrate\/redux-cordova-sqlite-flow-integrate\/www\/persistencejs\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "integrateTest",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "redux-cordova-sqlite-flow-integrate\/platforms\/ios\/integrateTest.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/takayuki-ochiai\/pos-sample.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7F588C4E0AD48C7604C6BC6A042E8A2FAF093543"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/zefhemel\/persistencejs.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B7A362D37696458230FFFD86AE3E8EDFD69AA944"
+    }
+  ]
+}

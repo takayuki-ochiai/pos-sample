@@ -13,3 +13,10 @@ export const CATEGORY_ACTIONS = {
 
 export const ON_DEVICE_READY = 'ON_DEVICE_READY';
 export const FETCH_DB_DATA = 'FETCH_DB_DATA';
+
+export const DB_ACTIONS = {
+  SELECT: 'DB_SELECT',
+  INSERT: 'DB_INSERT',
+  UPDATE: 'DB_UPDATE',
+  MERGE: 'DB_MERGE',
+};

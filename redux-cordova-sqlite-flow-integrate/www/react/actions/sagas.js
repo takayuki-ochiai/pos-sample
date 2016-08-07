@@ -1,6 +1,8 @@
 import { takeEvery, delay } from 'redux-saga';
 import { call, fork, take, put } from 'redux-saga/effects';
-import { ON_DEVICE_READY, FETCH_DB_DATA } from './constants';
+import { ON_DEVICE_READY, DB_ACTIONS } from './constants';
+import { handleSelectDbSaga } from './dbSaga';
+import { selectDb } from './dbActions';
 
 import { List } from 'immutable';
 // import Todo from './entities/Todo';
@@ -27,31 +29,15 @@ function* handleDeviceReadySaga() {
   console.log('platform is ' + device.platform);
 
   if (device.platform === 'iOS') {
-
-    console.log('persistence');
-    console.log(persistence);
-    console.log('persistence.store');
-    console.log(persistence.store);
-    console.log('persistence.store.cordovasql');
-    console.log(persistence.store.cordovasql);
-    console.log('persistence.store.cordovasql.config');
-    console.log(persistence.store.cordovasql.config);
-    console.log('iOS db setup start!!');
-    try {
-      persistence.store.cordovasql.config(
-        persistence,
-        'eltex.regi',
-        '0.0.1',                // DB version
-        'testdb',          // DB display name
-        5 * 1024 * 1024,        // DB size (WebSQL fallback only)
-        0,                      // SQLitePlugin Background processing disabled
-        0
-      );
-    } catch (e) {
-      console.log("cordovasqlでエラー発生");
-      console.log(e);
-    }
-
+    persistence.store.cordovasql.config(
+      persistence,
+      'eltex.regi',
+      '0.0.1',                // DB version
+      'testdb',          // DB display name
+      5 * 1024 * 1024,        // DB size (WebSQL fallback only)
+      0,                      // SQLitePlugin Background processing disabled
+      2 // Library/LocalDatabaseにdbファイルを作成。iTunesやiCloudにはバックアップさせたくないため
+    );
   } else { // cordova browserでエミュレートしてるときはdevice.platformは "browser"
     persistence.store.websql.config(
       persistence,
@@ -63,44 +49,13 @@ function* handleDeviceReadySaga() {
   persistence.schemaSync();
   console.log('start fetch db data');
   // DBのデータを取得してreducerにセットする処理を発行
-  yield put({ type: FETCH_DB_DATA });
-}
-
-function* fetchDbData() {
-  console.log('fetchDbData start');
-  const list = yield call(() => {
-    return new Promise(resolve => {
-      let categoryList = List([]);
-      CagegoryDbEntity.all().list(categories => {
-        categories.forEach(category => {
-          const categoryRecord = Category.fromJS({
-            name: category.name,
-            metaData: category.metaData,
-          });
-          categoryList = categoryList.push(categoryRecord);
-        });
-        resolve(categoryList);
-      });
-    });
-  });
-  console.log('call finish');
-  console.log(list.size);
-  yield put({
-    type: 'SET_CATEGORY_TABLE_RECORDS',
-    payload: {
-      list,
-    },
-  });
-}
-
-function* handleFetchDbSaga() {
-  console.log('handleFetchDbStart');
-  yield* takeEvery(FETCH_DB_DATA, fetchDbData);
+  const query = CagegoryDbEntity.all();
+  yield put(selectDb(query));
 }
 
 export default function* rootSaga() {
   console.log('rootSagaStart');
   yield fork(handleRequestSaga);
   yield fork(handleDeviceReadySaga);
-  yield fork(handleFetchDbSaga);
+  yield fork(handleSelectDbSaga);
 }

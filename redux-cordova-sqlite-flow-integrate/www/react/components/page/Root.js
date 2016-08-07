@@ -16,8 +16,9 @@ class Root extends React.Component {
   onClickInsertButton() {
     this.props.dispatch(sagaTake());
     console.log('dbinsert start!!!');
+    const rand = (Math.random() * 200);
     const newcategory1 = Category.fromJS({
-      name: 'My category3',
+      name: `My category ${rand}`,
       metaData: { rating: 1 },
     });
     if (newcategory1.save()) {

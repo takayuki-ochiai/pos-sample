@@ -21,7 +21,10 @@ export default class Category extends CategoryGen {
       metaData: this.metaData,
     });
     persistence.add(newcategory);
-    persistence.flush();
+    persistence.flush((resolve, reject) => {
+      console.log(resolve);
+      console.log(reject);
+    });
     return true;
   }
 }
